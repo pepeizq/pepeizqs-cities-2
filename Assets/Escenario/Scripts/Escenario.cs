@@ -11,15 +11,6 @@ public class Escenario : MonoBehaviour
     public Arranque arranque;
 
     public Terreno[] casillas;
-  
-    public Terreno[] casillas_Amarillo;
-    public Terreno[] casillas_Blanco;
-    public Terreno[] casillas_Gris;
-    public Terreno[] casillas_MarronClaro;
-    public Terreno[] casillas_MarronOscuro;
-    public Terreno[] casillas_Morado;
-    public Terreno[] casillas_Rojo;
-    public Terreno[] casillas_Verde;
 
     [HideInInspector]
     public Terreno[,] terrenos = new Terreno[1, 1];
@@ -27,8 +18,8 @@ public class Escenario : MonoBehaviour
     public KeyCode teclaGenerarNivel;
 
     private float alturaNivel = 8;
-    private List<Terreno> casillasTerreno;
-    private List<Terreno> casillasTerreno2;
+    private List<Terreno> listadoCasillas;
+    private List<Terreno> listadoCasillasTemporal;
 
     public void Start()
     {
@@ -40,7 +31,7 @@ public class Escenario : MonoBehaviour
         {
             GUIUtility.systemCopyBuffer = null;
 
-            casillasTerreno = new List<Terreno>();
+            listadoCasillas = new List<Terreno>();
 
             int montañasGenerar = (int)arranque.tamañoEscenarioX / 100 * (int)arranque.tamañoEscenarioZ / 100;
             int intentosGeneracion = montañasGenerar * 2;
@@ -55,7 +46,7 @@ public class Escenario : MonoBehaviour
 
                 bool añadir = true;
 
-                foreach (Terreno casilla in casillasTerreno)
+                foreach (Terreno casilla in listadoCasillas)
                 {
                     if(Enumerable.Range((int)(casilla.posicion.x - alturaCasilla), (int)(casilla.posicion.x + alturaCasilla)).Contains(posicionX))
                     {
@@ -75,7 +66,7 @@ public class Escenario : MonoBehaviour
                 if (añadir == true)
                 {
                     //Debug.Log(string.Format("{0}", posicionX));
-                    casillasTerreno.Add(new Terreno(0, 0, new Vector3(posicionX, alturaCasilla, posicionZ)));
+                    listadoCasillas.Add(new Terreno(0, 0, new Vector3(posicionX, alturaCasilla, posicionZ)));
                     GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Terreno(0, 0, new Vector3(" + (posicionX).ToString() + ", " + alturaCasilla.ToString() + ", " + (posicionZ).ToString() + "))," + Environment.NewLine;
 
                     int desplazamiento = 0;
@@ -138,7 +129,7 @@ public class Escenario : MonoBehaviour
                                 {
                                     if (ComprobarLimiteX(posicionX + x, 2) == true && ComprobarLimiteZ(posicionZ + z, 2) == true)
                                     {
-                                        casillasTerreno.Add(new Terreno(0, 0, new Vector3(posicionX + x, alturaCasilla, posicionZ + z)));
+                                        listadoCasillas.Add(new Terreno(0, 0, new Vector3(posicionX + x, alturaCasilla, posicionZ + z)));
                                         GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Terreno(0, 0, new Vector3(" + (posicionX + x).ToString() + ", " + alturaCasilla.ToString() + ", " + (posicionZ + z).ToString() + "))," + Environment.NewLine;
                                     }
                                 }
@@ -157,7 +148,7 @@ public class Escenario : MonoBehaviour
         }
         else
         {
-            casillasTerreno = new List<Terreno>
+            listadoCasillas = new List<Terreno>
                 {
 new Terreno(0, 0, new Vector3(89, 7, 108)),
 new Terreno(0, 0, new Vector3(92, 6.5f, 105)),
@@ -481,7 +472,7 @@ new Terreno(0, 0, new Vector3(35, 1, 112))
             };
         }
 
-        foreach (Terreno subcasilla in casillasTerreno)
+        foreach (Terreno subcasilla in listadoCasillas)
         {
             PonerTerreno(subcasilla, null, false);
         }
@@ -498,7 +489,7 @@ new Terreno(0, 0, new Vector3(35, 1, 112))
                 alturaNivel = 0.5f;
             }
 
-            GenerarNivel(alturaNivel, casillasTerreno);
+            GenerarNivel(alturaNivel, listadoCasillas);
             k += 1;
         }
     }
@@ -514,7 +505,7 @@ new Terreno(0, 0, new Vector3(35, 1, 112))
                 alturaNivel = 0.5f;
             }
 
-            GenerarNivel(alturaNivel, casillasTerreno);
+            GenerarNivel(alturaNivel, listadoCasillas);
             //Debug.Log(alturaNivel);
         }
     }
@@ -533,21 +524,21 @@ new Terreno(0, 0, new Vector3(35, 1, 112))
                 alturaNivel = 0.5f;
             }
 
-            GenerarNivel(alturaNivel, casillasTerreno);
+            GenerarNivel(alturaNivel, listadoCasillas);
             i += 1;
         }
     }
 
-    private void GenerarNivel(float altura, List<Terreno> casillasTerreno)
+    private void GenerarNivel(float altura, List<Terreno> listadoCasillas)
     {
-        casillasTerreno2 = new List<Terreno>();
+        listadoCasillasTemporal = new List<Terreno>();
 
-        foreach (Terreno subcasilla in casillasTerreno)
+        foreach (Terreno subcasilla in listadoCasillas)
         {
-            casillasTerreno2.Add(subcasilla);
+            listadoCasillasTemporal.Add(subcasilla);
         }
 
-        foreach (Terreno subcasilla in casillasTerreno2)
+        foreach (Terreno subcasilla in listadoCasillasTemporal)
         {
             int x = (int)subcasilla.posicion.x;
             int z = (int)subcasilla.posicion.z;
@@ -562,86 +553,395 @@ new Terreno(0, 0, new Vector3(35, 1, 112))
 
             if ((y > 0) && (altura == subcasilla.posicion.y) && ComprobarLimiteX(x, 2) == true && ComprobarLimiteZ(z, 2) == true)
             {
+                if (terrenos[x - 1, z - 1] == null)
+                {
+                    CalcularTerreno_Xmenos1_Zmenos1(x, y, z, listadoCasillas);
+                }
+
+                if (terrenos[x - 1, z + 1] == null)
+                {
+                    CalcularTerreno_Xmenos1_Zmas1(x, y, z, listadoCasillas);
+                }
+
+                if (terrenos[x + 1, z - 1] == null)
+                {
+                    CalcularTerreno_Xmas1_Zmenos1(x, y, z, listadoCasillas);
+                }
+
+                if (terrenos[x + 1, z + 1] == null)
+                {
+                    CalcularTerreno_Xmas1_Zmas1(x, y, z, listadoCasillas);
+                }
+
+                if (terrenos[x, z - 1] == null)
+                {
+                    CalcularTerreno_X0_Zmenos1(x, y, z, listadoCasillas);
+                }
+
+                if (terrenos[x - 1, z] == null)
+                {
+                    CalcularTerreno_Xmenos1_Z0(x, y, z, listadoCasillas);
+                }
+
+                if (terrenos[x, z + 1] == null)
+                {
+                    CalcularTerreno_X0_Zmas1(x, y, z, listadoCasillas);
+                }
+
                 if (terrenos[x + 1, z] == null)
                 {
-                    CalcularTerreno_X1_Z0(x, y, z);
+                    CalcularTerreno_Xmas1_Z0(x, y, z, listadoCasillas);
                 }
             }
         }
     }
 
-    private void CalcularTerreno_X1_Z0(int x, float y, int z)
+    //Verde
+    private void CalcularTerreno_Xmenos1_Zmenos1(int x, float y, int z, List<Terreno> listadoCasillas)
     {
-        Terreno terrenoPoner = casillas_Amarillo[0];
-        terrenoPoner.posicion = new Vector3(x + 1, y, z);
+        Terreno esquina2rotacion180 = new Terreno(2, 180, new Vector3(x - 1, y, z - 1));
 
         if (ComprobarTerreno0(terrenos[x, z], y, 0) == true)
         {
-            PonerTerreno(terrenoPoner, casillasTerreno, true);
+            PonerTerreno(esquina2rotacion180, listadoCasillas, true);
         }
-        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true)
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true)
         {
-            PonerTerreno(terrenoPoner, casillasTerreno, true);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true)
-        {
-            PonerTerreno(terrenoPoner, casillasTerreno, true);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true)
-        {
-            PonerTerreno(terrenoPoner, casillasTerreno, true);
+            PonerTerreno(esquina2rotacion180, listadoCasillas, true);
         }
     }
 
-    private void PonerTerreno(Terreno terreno, List<Terreno> casillasTerreno, bool ponerListado)
+    //Gris
+    private void CalcularTerreno_Xmenos1_Zmas1(int x, float y, int z, List<Terreno> listadoCasillas)
+    {
+        Terreno esquina2rotacion270 = new Terreno(37, 270, new Vector3(x - 1, y, z + 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(esquina2rotacion270, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true)
+        {
+            PonerTerreno(esquina2rotacion270, listadoCasillas, true);
+        }
+    }
+
+    //Marron Claro
+    private void CalcularTerreno_Xmas1_Zmenos1(int x, float y, int z, List<Terreno> listadoCasillas)
+    {
+        Terreno rampa1rotacion90 = new Terreno(31, 90, new Vector3(x + 1, y, z - 1));
+
+        if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true)
+        {
+            PonerTerreno(rampa1rotacion90, listadoCasillas, true);
+        }
+
+        //---------------------------------------
+
+        Terreno esquina2rotacion90 = new Terreno(32, 90, new Vector3(x + 1, y, z - 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(esquina2rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true)
+        {
+            PonerTerreno(esquina2rotacion90, listadoCasillas, true);
+        }
+    }
+
+    //Morado
+    private void CalcularTerreno_Xmas1_Zmas1(int x, float y, int z, List<Terreno> listadoCasillas)
+    {
+       Terreno rampa1rotacion0 = new Terreno(26, 0, new Vector3(x + 1, y, z + 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(rampa1rotacion0, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        {
+            PonerTerreno(rampa1rotacion0, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion0, listadoCasillas, true);
+        }
+
+        //---------------------------------------
+
+        Terreno esquina2rotacion0 = new Terreno(27, 0, new Vector3(x + 1, y, z + 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(esquina2rotacion0, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(esquina2rotacion0, listadoCasillas, true);
+        }
+    }
+
+    //Rojo
+    private void CalcularTerreno_X0_Zmenos1(int x, float y, int z, List<Terreno> listadoCasillas)
+    {
+        Terreno plano = new Terreno(20, 0, new Vector3(x, y + 0.5f, z - 1));
+
+        if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+
+        //---------------------------------------
+
+        Terreno esquina3rotacion180 = new Terreno(23, 180, new Vector3(x, y, z - 1));
+
+        if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion180, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(esquina3rotacion180, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion180, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion180, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion180, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(esquina3rotacion180, listadoCasillas, true);
+        }
+
+        //---------------------------------------
+
+        Terreno rampa1rotacion90 = new Terreno(21, 90, new Vector3(x, y, z - 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true)
+        {
+            PonerTerreno(rampa1rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true)
+        {
+            PonerTerreno(rampa1rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true)
+        {
+            PonerTerreno(rampa1rotacion90, listadoCasillas, true);
+        }
+    }
+
+    //Marron Oscuro
+    private void CalcularTerreno_Xmenos1_Z0(int x, float y, int z, List<Terreno> listadoCasillas)
+    {       
+        Terreno rampa1rotacion180 = new Terreno(6, 180, new Vector3(x - 1, y, z));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion180, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 180) == true)
+        {
+            PonerTerreno(rampa1rotacion180, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true)
+        {
+            PonerTerreno(rampa1rotacion180, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true)
+        {
+            PonerTerreno(rampa1rotacion180, listadoCasillas, true);
+        }
+    }
+
+    //Blanco
+    private void CalcularTerreno_X0_Zmas1(int x, float y, int z, List<Terreno> listadoCasillas)
+    {
+        Terreno esquina3rotacion270 = new Terreno(13, 270, new Vector3(x, y, z + 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion270, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion270, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion270, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion270, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion270, listadoCasillas, true);
+        }
+
+        //---------------------------------------
+
+        Terreno rampa1rotacion270 = new Terreno(11, 270, new Vector3(x, y, z + 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion270, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true)
+        {
+            PonerTerreno(rampa1rotacion270, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true)
+        {
+            PonerTerreno(rampa1rotacion270, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion270, listadoCasillas, true);
+        }
+    }
+
+    //Amarillo
+    private void CalcularTerreno_Xmas1_Z0(int x, float y, int z, List<Terreno> listadoCasillas)
+    {
+        Terreno plano = new Terreno(15, 0, new Vector3(x + 1, y + 0.5f, z));
+
+        if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 90) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x + 2, z], y, 180) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z], y, 180) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z], y, 180) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z], y, 180) == true)
+        {
+            PonerTerreno(plano, listadoCasillas, true);
+        }
+
+        //---------------------------------------
+
+        Terreno esquina3rotacion90 = new Terreno(18, 90, new Vector3(x + 1, y, z));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z + 1], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90, listadoCasillas, true);
+        }
+
+        //---------------------------------------
+
+        Terreno rampa1rotacion0 = new Terreno(16, 0, new Vector3(x + 1, y, z));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion0, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion0, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion0, listadoCasillas, true);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true)
+        {
+            PonerTerreno(rampa1rotacion0, listadoCasillas, true);
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------
+
+    private void PonerTerreno(Terreno terreno, List<Terreno> listadoCasillas, bool ponerListado)
     {
         int x = (int)terreno.posicion.x;
         int z = (int)terreno.posicion.z;
 
-        //Terreno terrenoGenerar = null;
-
-        //if (terreno.posicion.y > 1f)
-        //{
-        //    if (terreno.id == 0)
-        //    {
-        //        terrenoGenerar = casillas[5];
-        //    }
-        //    else if (terreno.id == 1)
-        //    {
-        //        terrenoGenerar = casillas[6];
-        //    }
-        //    else if (terreno.id == 2)
-        //    {
-        //        terrenoGenerar = casillas[7];
-        //    }
-        //    else if (terreno.id == 3)
-        //    {
-        //        terrenoGenerar = casillas[8];
-        //    }
-        //    else if (terreno.id == 4)
-        //    {
-        //        terrenoGenerar = casillas[9];
-        //    }
-        //}
-        //else
-        //{           
-        //terrenoGenerar = casillas[terreno.id];
-        //}
+        Terreno terrenoGenerar = casillas[terreno.id];
 
         if (terrenos[x, z] == null)
         {
-            Terreno terreno2 = Instantiate(terreno, terreno.posicion, Quaternion.identity);
+            Terreno terreno2 = Instantiate(terrenoGenerar, terreno.posicion, Quaternion.identity);
             terreno2.gameObject.transform.Rotate(Vector3.up, terreno.rotacion, Space.World);
             terreno2.rotacion = terreno.rotacion;
             terreno2.posicion = terreno.posicion;
             terrenos[x, z] = terreno2;
         }
 
-        if (casillasTerreno != null)
+        if (listadoCasillas != null)
         {
             if (ponerListado == true)
             {
-                casillasTerreno.Add(terreno);
+                listadoCasillas.Add(terreno);
             }
         }
     }
@@ -650,8 +950,8 @@ new Terreno(0, 0, new Vector3(35, 1, 112))
     {
         GameObject.Destroy(terrenos[(int)terreno.posicion.x, (int)terreno.posicion.z]);
         terrenos[(int)terreno.posicion.x, (int)terreno.posicion.z] = null;
-        casillasTerreno.Remove(terreno);
-        casillasTerreno2.Remove(terreno);
+        listadoCasillas.Remove(terreno);
+        listadoCasillasTemporal.Remove(terreno);
     }
 
     private bool ComprobarTerreno0(Terreno terreno, float altura, int rotacion)
