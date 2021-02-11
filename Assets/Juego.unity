@@ -710,24 +710,6 @@ MonoBehaviour:
   - {fileID: -3589603228177465714, guid: 659d2a269e41e72499171d8510bf2999, type: 3}
   - {fileID: 6121862778323575149, guid: 568f75c7f07aa4748a16978b98bc59eb, type: 3}
   - {fileID: 3838918074520509923, guid: 41cb1bece9764a046ab1fcb5ff69d18f, type: 3}
-  casillas_Amarillo:
-  - {fileID: 3928055176229900843, guid: ab8cfd70b1716ad42827158d629bfe67, type: 3}
-  - {fileID: -3830057801001594451, guid: ec5183e5609ca204f8f2aa0451266e16, type: 3}
-  - {fileID: 5011828538506161351, guid: 2bba438231682774f98656282e7c37f0, type: 3}
-  - {fileID: -779887164247885095, guid: 55631c3c36db50e4c8f8f12dd8d728a7, type: 3}
-  - {fileID: 67027322149016136, guid: e668a69430519b048b3cdd86b594a4d3, type: 3}
-  casillas_Blanco: []
-  casillas_Gris: []
-  casillas_MarronClaro: []
-  casillas_MarronOscuro: []
-  casillas_Morado: []
-  casillas_Rojo: []
-  casillas_Verde:
-  - {fileID: -2070812219386385408, guid: 283ff9afbaaed904387711ef6e2d514b, type: 3}
-  - {fileID: -6884745709601063214, guid: 3b51a469de8d024498ba8bb3e7c1e06d, type: 3}
-  - {fileID: -3634566471038390745, guid: 5bf588b8cf322b4408d86f17078a4037, type: 3}
-  - {fileID: -1298595284496479421, guid: 32307e8d058a2874e9423196396f7009, type: 3}
-  - {fileID: -8866888062226908587, guid: 015f51f9504d0d1408b3f2d9b48cd2ea, type: 3}
   teclaGenerarNivel: 32
 --- !u!1 &2019977290
 GameObject:
