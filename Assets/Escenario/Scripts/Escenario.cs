@@ -24,13 +24,13 @@ public class Escenario : MonoBehaviour
     public void Start()
     {
         terrenos = new Terreno[arranque.tamañoEscenarioX, arranque.tamañoEscenarioZ];
-
-        List<Terreno> listadoCasillasTemp = new List<Terreno>();
-
-        bool aleatorio = false;
+        
+        bool aleatorio = true;
 
         if (aleatorio == true)
         {
+            listadoCasillasInicial = new List<Vector3>();
+
             GUIUtility.systemCopyBuffer = null;
           
             int montañasGenerar = (int)arranque.tamañoEscenarioX / 100 * (int)arranque.tamañoEscenarioZ / 100;
@@ -70,9 +70,8 @@ public class Escenario : MonoBehaviour
 
                 if (añadir == true)
                 {
-                    //Debug.Log(string.Format("{0}", posicionX));
-                    listadoCasillas.Add(new Terreno(0, 0, new Vector3(posicionX, alturaCasilla, posicionZ)));
-                    GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Terreno(0, 0, new Vector3(" + (posicionX).ToString() + ", " + alturaCasilla.ToString() + ", " + (posicionZ).ToString() + "))," + Environment.NewLine;
+                    listadoCasillasInicial.Add(new Vector3(posicionX, alturaCasilla, posicionZ));
+                    GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Vector3(" + (posicionX).ToString() + ", " + alturaCasilla.ToString() + ", " + (posicionZ).ToString() + ")," + Environment.NewLine;
 
                     int desplazamiento = 0;
                     while (alturaCasilla >= 1)
@@ -134,7 +133,7 @@ public class Escenario : MonoBehaviour
                                 {
                                     if (ComprobarLimiteX(posicionX + x, 2) == true && ComprobarLimiteZ(posicionZ + z, 2) == true)
                                     {
-                                        listadoCasillas.Add(new Terreno(0, 0, new Vector3(posicionX + x, alturaCasilla, posicionZ + z)));
+                                        listadoCasillasInicial.Add(new Vector3(posicionX + x, alturaCasilla, posicionZ + z));
                                         GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Terreno(0, 0, new Vector3(" + (posicionX + x).ToString() + ", " + alturaCasilla.ToString() + ", " + (posicionZ + z).ToString() + "))," + Environment.NewLine;
                                     }
                                 }
@@ -897,6 +896,10 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(rampa1rotacion90);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno0(terrenos[x - 1, z], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion90);
+        }
 
         //---------------------------------------
 
@@ -955,7 +958,7 @@ public class Escenario : MonoBehaviour
             PonerTerreno(rampas4rotacion0);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 2, z + 2], y, 90) == true && terrenos[x - 2, z] == null && terrenos[x, z + 2] == null)
-        {         
+        {
             PonerTerreno(rampas4rotacion0);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 2, z + 2], y, 0) == true && terrenos[x - 2, z] == null && terrenos[x, z + 2] == null)
@@ -988,6 +991,10 @@ public class Escenario : MonoBehaviour
             PonerTerreno(plano);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 2, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x - 1, z + 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 2, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 180) == true)
         {
             PonerTerreno(plano);
         }
@@ -1061,6 +1068,14 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(esquina3rotacion0);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 2, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
 
         //---------------------------------------
 
@@ -1072,7 +1087,7 @@ public class Escenario : MonoBehaviour
         }
 
         //---------------------------------------
-
+      
         Terreno rampa1rotacion270 = new Terreno(36, 270, new Vector3(x - 1, y, z + 1));
 
         if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x - 2, z], y, 0) == true)
@@ -1172,7 +1187,7 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(rampas4rotacion0);
         }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z - 2], y, 0) == true && terrenos[x + 2, z] == null && terrenos[x, z - 2] == null)
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z - 2], y, 0) == true && terrenos[x + 2, z] == null && terrenos[x + 2, z - 1] == null && terrenos[x, z - 2] == null)
         {
             PonerTerreno(rampas4rotacion0);
         }
@@ -1390,6 +1405,10 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(plano);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z + 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
 
         //---------------------------------------
 
@@ -1465,6 +1484,10 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(esquina3rotacion270);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
 
         //---------------------------------------
 
@@ -1523,6 +1546,10 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(rampa1rotacion0);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion0);
+        }
 
         //---------------------------------------
 
@@ -1572,6 +1599,10 @@ public class Escenario : MonoBehaviour
             PonerTerreno(plano);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x - 1, z - 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x - 1, z - 2], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
         {
             PonerTerreno(plano);
         }
@@ -1761,6 +1792,14 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(esquina3rotacion180);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
 
         //---------------------------------------
 
@@ -1838,6 +1877,10 @@ public class Escenario : MonoBehaviour
             PonerTerreno(plano);
         }
         else if (ComprobarTerreno1(terrenos[x, z], y, 180) == true && ComprobarTerreno1(terrenos[x - 1, z - 1], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno1(terrenos[x - 1, z - 1], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 90) == true)
         {
             PonerTerreno(plano);
         }
@@ -1974,6 +2017,14 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(esquina3rotacion270);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 1, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
 
         //---------------------------------------
 
@@ -2051,6 +2102,18 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(esquina3rotacion180);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno0(terrenos[x - 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 180) == true && ComprobarTerreno0(terrenos[x - 1, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
 
         //---------------------------------------
 
@@ -2096,6 +2159,38 @@ public class Escenario : MonoBehaviour
             PonerTerreno(plano);
         }
         else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno1(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno1(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 90) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 180) == true) 
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true)
         {
             PonerTerreno(plano);
         }
@@ -2240,6 +2335,10 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(esquina3rotacion0);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x - 1, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
 
         //---------------------------------------
 
@@ -2329,6 +2428,10 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(esquina3rotacion270);
         }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x + 1, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
 
         //---------------------------------------
 
@@ -2382,6 +2485,22 @@ public class Escenario : MonoBehaviour
             PonerTerreno(plano);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x + 2, z + 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true)
         {
             PonerTerreno(plano);
         }
@@ -2522,6 +2641,14 @@ public class Escenario : MonoBehaviour
         {
             PonerTerreno(esquina3rotacion0);
         }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
 
         //---------------------------------------
 
@@ -2600,6 +2727,10 @@ public class Escenario : MonoBehaviour
             PonerTerreno(esquina3rotacion90);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion90);
         }
