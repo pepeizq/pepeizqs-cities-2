@@ -71,7 +71,7 @@ public class Escenario : MonoBehaviour
                 if (añadir == true)
                 {
                     listadoCasillasInicial.Add(new Vector3(posicionX, alturaCasilla, posicionZ));
-                    GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Vector3(" + (posicionX).ToString() + ", " + alturaCasilla.ToString() + ", " + (posicionZ).ToString() + ")," + Environment.NewLine;
+                    GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Vector3(" + posicionX.ToString() + ", " + alturaCasilla.ToString() + ", " + posicionZ.ToString() + ")," + Environment.NewLine;
 
                     int desplazamiento = 0;
                     while (alturaCasilla >= 1)
@@ -154,603 +154,539 @@ public class Escenario : MonoBehaviour
         {
             listadoCasillasInicial = new List<Vector3>
                 {
- new Vector3(179, 6, 169),
-new Vector3(179, 5.5f, 165),
-new Vector3(178, 5, 175),
-new Vector3(184, 5, 164),
-new Vector3(174, 5, 164),
-new Vector3(173, 5, 168),
-new Vector3(179, 5, 175),
-new Vector3(184, 5, 164),
-new Vector3(187, 4.5f, 171),
-new Vector3(187, 4.5f, 169),
-new Vector3(186, 4.5f, 162),
-new Vector3(177, 4, 159),
-new Vector3(169, 4, 167),
-new Vector3(169, 4, 171),
-new Vector3(188, 4, 178),
-new Vector3(191, 3.5f, 169),
-new Vector3(191, 3.5f, 168),
-new Vector3(177, 3.5f, 181),
-new Vector3(177, 3.5f, 157),
-new Vector3(174, 3.5f, 181),
-new Vector3(168, 3.5f, 158),
-new Vector3(190, 3.5f, 158),
-new Vector3(168, 3.5f, 158),
-new Vector3(165, 3, 172),
-new Vector3(192, 3, 182),
-new Vector3(193, 3, 173),
-new Vector3(166, 3, 156),
-new Vector3(176, 3, 155),
-new Vector3(165, 3, 167),
-new Vector3(195, 2.5f, 175),
-new Vector3(174, 2, 151),
-new Vector3(183, 2, 187),
-new Vector3(196, 2, 186),
-new Vector3(186, 2, 187),
-new Vector3(175, 2, 151),
-new Vector3(197, 2, 161),
-new Vector3(162, 2, 186),
-new Vector3(162, 2, 152),
-new Vector3(162, 2, 186),
-new Vector3(159, 1.5f, 174),
-new Vector3(198, 1.5f, 150),
-new Vector3(199, 1.5f, 176),
-new Vector3(199, 1.5f, 163),
-new Vector3(159, 1.5f, 172),
-new Vector3(186, 1.5f, 189),
-new Vector3(172, 1.5f, 149),
-new Vector3(198, 1.5f, 150),
-new Vector3(160, 1.5f, 188),
-new Vector3(198, 1.5f, 188),
-new Vector3(198, 1.5f, 150),
-new Vector3(183, 1.5f, 149),
-new Vector3(174, 1, 191),
-new Vector3(200, 1, 190),
-new Vector3(158, 1, 148),
-new Vector3(158, 1, 148),
-new Vector3(176, 1, 147),
-new Vector3(157, 1, 160),
-new Vector3(201, 1, 168),
-new Vector3(157, 1, 176),
-new Vector3(157, 1, 161),
-new Vector3(183, 1, 191),
-new Vector3(248, 6, 25),
-new Vector3(247, 5.5f, 21),
-new Vector3(244, 5.5f, 24),
-new Vector3(251, 5.5f, 22),
-new Vector3(248, 5, 19),
-new Vector3(247, 5, 19),
-new Vector3(242, 5, 23),
-new Vector3(242, 5, 23),
-new Vector3(253, 5, 30),
-new Vector3(246, 4.5f, 17),
-new Vector3(258, 4, 28),
-new Vector3(238, 4, 28),
-new Vector3(239, 4, 34),
-new Vector3(239, 4, 16),
-new Vector3(249, 4, 15),
-new Vector3(257, 4, 16),
-new Vector3(257, 4, 16),
-new Vector3(245, 4, 15),
-new Vector3(237, 3.5f, 14),
-new Vector3(236, 3.5f, 24),
-new Vector3(248, 3.5f, 13),
-new Vector3(260, 3.5f, 26),
-new Vector3(261, 3, 38),
-new Vector3(234, 3, 20),
-new Vector3(235, 3, 12),
-new Vector3(261, 3, 12),
-new Vector3(234, 3, 28),
-new Vector3(264, 2.5f, 20),
-new Vector3(263, 2.5f, 40),
-new Vector3(232, 2.5f, 25),
-new Vector3(232, 2.5f, 19),
-new Vector3(232, 2.5f, 21),
-new Vector3(263, 2.5f, 10),
-new Vector3(233, 2.5f, 40),
-new Vector3(233, 2.5f, 10),
-new Vector3(231, 2, 8),
-new Vector3(230, 2, 27),
-new Vector3(266, 2, 27),
-new Vector3(228, 1.5f, 32),
-new Vector3(229, 1.5f, 6),
-new Vector3(228, 1.5f, 25),
-new Vector3(229, 1.5f, 44),
-new Vector3(228, 1.5f, 27),
-new Vector3(247, 1.5f, 45),
-new Vector3(240, 1.5f, 45),
-new Vector3(226, 1, 28),
-new Vector3(226, 1, 19),
-new Vector3(226, 1, 30),
-new Vector3(249, 1, 3),
-new Vector3(256, 1, 47),
-new Vector3(248, 1, 47),
-new Vector3(70, 5, 62),
-new Vector3(67, 4.5f, 59),
-new Vector3(73, 4.5f, 59),
-new Vector3(73, 4.5f, 59),
-new Vector3(66, 4.5f, 62),
-new Vector3(67, 4.5f, 65),
-new Vector3(75, 4, 67),
-new Vector3(76, 4, 60),
-new Vector3(65, 4, 57),
-new Vector3(75, 4, 57),
-new Vector3(68, 4, 68),
-new Vector3(78, 3.5f, 62),
-new Vector3(62, 3.5f, 64),
-new Vector3(78, 3.5f, 60),
-new Vector3(62, 3.5f, 59),
-new Vector3(63, 3.5f, 69),
-new Vector3(78, 3.5f, 60),
-new Vector3(66, 3, 52),
-new Vector3(72, 3, 72),
-new Vector3(80, 3, 58),
-new Vector3(69, 3, 52),
-new Vector3(66, 2.5f, 74),
-new Vector3(71, 2.5f, 74),
-new Vector3(70, 2.5f, 74),
-new Vector3(59, 2.5f, 73),
-new Vector3(84, 2, 63),
-new Vector3(56, 2, 59),
-new Vector3(83, 2, 49),
-new Vector3(83, 2, 75),
-new Vector3(57, 2, 49),
-new Vector3(57, 2, 75),
-new Vector3(57, 2, 75),
-new Vector3(68, 2, 76),
-new Vector3(55, 1.5f, 47),
-new Vector3(86, 1.5f, 68),
-new Vector3(86, 1.5f, 67),
-new Vector3(54, 1.5f, 65),
-new Vector3(54, 1.5f, 56),
-new Vector3(54, 1.5f, 57),
-new Vector3(86, 1.5f, 65),
-new Vector3(55, 1.5f, 77),
-new Vector3(74, 1.5f, 46),
-new Vector3(54, 1.5f, 60),
-new Vector3(88, 1, 58),
-new Vector3(77, 1, 80),
-new Vector3(88, 1, 64),
-new Vector3(87, 1, 45),
-new Vector3(15, 3, 230),
-new Vector3(19, 2.5f, 230),
-new Vector3(21, 2, 229),
-new Vector3(13, 2, 224),
-new Vector3(13, 2, 224),
-new Vector3(10, 2, 235),
-new Vector3(23, 1.5f, 229),
-new Vector3(8, 1.5f, 223),
-new Vector3(7, 1.5f, 232),
-new Vector3(22, 1.5f, 237),
-new Vector3(22, 1.5f, 237),
-new Vector3(25, 1, 231),
-new Vector3(15, 1, 220),
-new Vector3(14, 1, 220),
-new Vector3(6, 1, 239),
-new Vector3(6, 1, 239),
-new Vector3(24, 1, 221),
-new Vector3(25, 1, 230),
-new Vector3(5, 1, 231),
-new Vector3(302, 6, 47),
-new Vector3(305, 5.5f, 44),
-new Vector3(298, 5.5f, 47),
-new Vector3(302, 5.5f, 43),
-new Vector3(300, 5, 53),
-new Vector3(297, 5, 42),
-new Vector3(307, 5, 42),
-new Vector3(303, 5, 41),
-new Vector3(294, 4.5f, 48),
-new Vector3(301, 4.5f, 55),
-new Vector3(312, 4, 45),
-new Vector3(298, 4, 57),
-new Vector3(311, 4, 38),
-new Vector3(290, 3.5f, 47),
-new Vector3(313, 3.5f, 58),
-new Vector3(314, 3.5f, 48),
-new Vector3(313, 3.5f, 36),
-new Vector3(313, 3.5f, 36),
-new Vector3(316, 3, 41),
-new Vector3(288, 3, 43),
-new Vector3(307, 2.5f, 63),
-new Vector3(287, 2.5f, 62),
-new Vector3(287, 2.5f, 62),
-new Vector3(317, 2.5f, 32),
-new Vector3(307, 2.5f, 63),
-new Vector3(318, 2.5f, 45),
-new Vector3(306, 2.5f, 63),
-new Vector3(286, 2.5f, 44),
-new Vector3(286, 2.5f, 48),
-new Vector3(319, 2, 64),
-new Vector3(285, 2, 30),
-new Vector3(299, 2, 29),
-new Vector3(301, 2, 29),
-new Vector3(297, 2, 65),
-new Vector3(320, 2, 45),
-new Vector3(303, 2, 29),
-new Vector3(284, 2, 47),
-new Vector3(309, 2, 65),
-new Vector3(305, 2, 65),
-new Vector3(321, 1.5f, 66),
-new Vector3(282, 1.5f, 45),
-new Vector3(307, 1.5f, 27),
-new Vector3(310, 1.5f, 67),
-new Vector3(283, 1.5f, 28),
-new Vector3(283, 1.5f, 28),
-new Vector3(307, 1.5f, 27),
-new Vector3(283, 1.5f, 66),
-new Vector3(283, 1.5f, 28),
-new Vector3(282, 1.5f, 49),
-new Vector3(321, 1.5f, 28),
-new Vector3(282, 1.5f, 54),
-new Vector3(283, 1.5f, 66),
-new Vector3(323, 1, 26),
-new Vector3(304, 1, 25),
-new Vector3(281, 1, 26),
-new Vector3(371, 7, 9),
-new Vector3(371, 6.5f, 5),
-new Vector3(374, 6.5f, 12),
-new Vector3(370, 6, 15),
-new Vector3(376, 6, 14),
-new Vector3(364, 5.5f, 16),
-new Vector3(372, 5.5f, 17),
-new Vector3(379, 5.5f, 7),
-new Vector3(363, 5.5f, 10),
-new Vector3(379, 5.5f, 10),
-new Vector3(379, 5.5f, 11),
-new Vector3(380, 5, 18),
-new Vector3(361, 5, 12),
-new Vector3(361, 5, 9),
-new Vector3(369, 5, 19),
-new Vector3(367, 5, 19),
-new Vector3(362, 5, 18),
-new Vector3(359, 4.5f, 4),
-new Vector3(360, 4.5f, 20),
-new Vector3(372, 4.5f, 21),
-new Vector3(382, 4.5f, 20),
-new Vector3(383, 4.5f, 5),
-new Vector3(374, 4.5f, 21),
-new Vector3(366, 4.5f, 21),
-new Vector3(384, 4, 22),
-new Vector3(385, 4, 5),
-new Vector3(357, 4, 11),
-new Vector3(384, 4, 22),
-new Vector3(385, 4, 13),
-new Vector3(366, 4, 23),
-new Vector3(388, 3, 26),
-new Vector3(354, 3, 26),
-new Vector3(388, 3, 26),
-new Vector3(354, 3, 26),
-new Vector3(378, 3, 27),
-new Vector3(353, 3, 8),
-new Vector3(353, 3, 6),
-new Vector3(391, 2.5f, 8),
-new Vector3(352, 2.5f, 28),
-new Vector3(352, 2.5f, 28),
-new Vector3(391, 2.5f, 15),
-new Vector3(349, 2, 13),
-new Vector3(395, 1.5f, 16),
-new Vector3(347, 1.5f, 11),
-new Vector3(347, 1.5f, 5),
-new Vector3(347, 1.5f, 9),
-new Vector3(360, 1.5f, 33),
-new Vector3(347, 1.5f, 4),
-new Vector3(348, 1.5f, 32),
-new Vector3(377, 1.5f, 33),
-new Vector3(397, 1, 17),
-new Vector3(381, 1, 35),
-new Vector3(110, 6, 359),
-new Vector3(106, 5.5f, 358),
-new Vector3(114, 5.5f, 359),
-new Vector3(114, 5.5f, 358),
-new Vector3(110, 5.5f, 355),
-new Vector3(105, 5, 354),
-new Vector3(109, 5, 365),
-new Vector3(105, 5, 354),
-new Vector3(115, 5, 354),
-new Vector3(110, 5, 365),
-new Vector3(103, 4.5f, 352),
-new Vector3(118, 4.5f, 361),
-new Vector3(111, 4.5f, 367),
-new Vector3(113, 4, 369),
-new Vector3(98, 3.5f, 358),
-new Vector3(98, 3.5f, 363),
-new Vector3(98, 3.5f, 363),
-new Vector3(108, 3, 373),
-new Vector3(108, 3, 373),
-new Vector3(96, 3, 359),
-new Vector3(96, 3, 362),
-new Vector3(124, 3, 357),
-new Vector3(96, 3, 356),
-new Vector3(96, 3, 359),
-new Vector3(126, 2.5f, 363),
-new Vector3(128, 2, 364),
-new Vector3(110, 2, 341),
-new Vector3(128, 2, 365),
-new Vector3(92, 2, 364),
-new Vector3(117, 2, 341),
-new Vector3(128, 2, 359),
-new Vector3(128, 2, 353),
-new Vector3(128, 2, 354),
-new Vector3(128, 2, 364),
-new Vector3(128, 2, 358),
-new Vector3(114, 1.5f, 379),
-new Vector3(129, 1.5f, 378),
-new Vector3(91, 1.5f, 340),
-new Vector3(103, 1.5f, 339),
-new Vector3(130, 1.5f, 361),
-new Vector3(129, 1.5f, 340),
-new Vector3(130, 1.5f, 356),
-new Vector3(90, 1.5f, 358),
-new Vector3(116, 1.5f, 379),
-new Vector3(129, 1.5f, 378),
-new Vector3(130, 1.5f, 356),
-new Vector3(131, 1, 380),
-new Vector3(219, 4, 162),
-new Vector3(222, 3.5f, 165),
-new Vector3(219, 3.5f, 158),
-new Vector3(223, 3.5f, 162),
-new Vector3(217, 3, 156),
-new Vector3(213, 3, 161),
-new Vector3(224, 3, 157),
-new Vector3(214, 3, 157),
-new Vector3(219, 3, 168),
-new Vector3(219, 3, 168),
-new Vector3(226, 2.5f, 169),
-new Vector3(216, 2, 152),
-new Vector3(210, 2, 171),
-new Vector3(229, 2, 164),
-new Vector3(229, 2, 165),
-new Vector3(217, 2, 172),
-new Vector3(229, 2, 160),
-new Vector3(220, 2, 172),
-new Vector3(217, 2, 152),
-new Vector3(231, 1.5f, 162),
-new Vector3(230, 1.5f, 173),
-new Vector3(215, 1.5f, 150),
-new Vector3(231, 1.5f, 165),
-new Vector3(213, 1, 176),
-new Vector3(233, 1, 160),
-new Vector3(205, 1, 165),
-new Vector3(205, 1, 166),
-new Vector3(222, 1, 176),
-new Vector3(232, 1, 149),
-new Vector3(219, 1, 148),
-new Vector3(215, 1, 176),
-new Vector3(158, 3, 202),
-new Vector3(154, 2.5f, 201),
-new Vector3(154, 2.5f, 201),
-new Vector3(157, 2.5f, 206),
-new Vector3(155, 2.5f, 205),
-new Vector3(158, 2.5f, 206),
-new Vector3(152, 2, 203),
-new Vector3(164, 2, 203),
-new Vector3(163, 2, 197),
-new Vector3(158, 1.5f, 194),
-new Vector3(165, 1.5f, 209),
-new Vector3(166, 1.5f, 203),
-new Vector3(158, 1.5f, 210),
-new Vector3(150, 1.5f, 203),
-new Vector3(160, 1.5f, 210),
+new Vector3(351, 5, 190),
+new Vector3(348, 4.5f, 193),
+new Vector3(347, 4.5f, 190),
+new Vector3(347, 4.5f, 190),
+new Vector3(348, 4.5f, 193),
+new Vector3(346, 4, 195),
+new Vector3(345, 4, 191),
+new Vector3(357, 4, 191),
+new Vector3(346, 4, 195),
+new Vector3(356, 4, 195),
+new Vector3(351, 4, 184),
+new Vector3(350, 3.5f, 182),
+new Vector3(344, 3.5f, 197),
+new Vector3(349, 3.5f, 182),
+new Vector3(360, 3, 199),
+new Vector3(348, 3, 180),
+new Vector3(342, 3, 181),
+new Vector3(363, 2.5f, 189),
+new Vector3(364, 2, 177),
+new Vector3(351, 1.5f, 206),
+new Vector3(335, 1.5f, 183),
+new Vector3(369, 1, 185),
+new Vector3(368, 1, 173),
+new Vector3(369, 1, 190),
+new Vector3(368, 1, 207),
+new Vector3(333, 1, 197),
+new Vector3(368, 1, 173),
+new Vector3(344, 1, 172),
+new Vector3(368, 1, 207),
+new Vector3(141, 4, 47),
+new Vector3(140, 3.5f, 51),
+new Vector3(145, 3.5f, 46),
+new Vector3(144, 3.5f, 50),
+new Vector3(138, 3.5f, 44),
+new Vector3(138, 3.5f, 44),
+new Vector3(146, 3, 42),
+new Vector3(147, 3, 47),
+new Vector3(135, 3, 46),
+new Vector3(149, 2.5f, 49),
+new Vector3(134, 2.5f, 40),
+new Vector3(133, 2.5f, 45),
+new Vector3(148, 2.5f, 54),
+new Vector3(133, 2.5f, 49),
+new Vector3(133, 2.5f, 47),
+new Vector3(137, 2, 57),
+new Vector3(137, 2, 57),
+new Vector3(136, 1.5f, 59),
+new Vector3(137, 1.5f, 35),
+new Vector3(153, 1.5f, 46),
+new Vector3(153, 1.5f, 49),
+new Vector3(152, 1.5f, 36),
+new Vector3(154, 1, 60),
+new Vector3(155, 1, 46),
+new Vector3(144, 1, 61),
+new Vector3(155, 1, 43),
+new Vector3(127, 1, 49),
+new Vector3(128, 1, 34),
+new Vector3(128, 1, 60),
+new Vector3(140, 1, 61),
+new Vector3(128, 1, 34),
+new Vector3(155, 1, 41),
+new Vector3(18, 5, 273),
+new Vector3(17, 4.5f, 269),
+new Vector3(14, 4.5f, 272),
+new Vector3(24, 4, 273),
+new Vector3(13, 4, 268),
+new Vector3(12, 4, 274),
+new Vector3(12, 4, 272),
+new Vector3(17, 3.5f, 265),
+new Vector3(11, 3.5f, 280),
+new Vector3(19, 3.5f, 281),
+new Vector3(11, 3.5f, 266),
+new Vector3(16, 3.5f, 281),
+new Vector3(15, 3.5f, 281),
+new Vector3(25, 3.5f, 280),
+new Vector3(21, 3, 263),
+new Vector3(28, 3, 271),
+new Vector3(19, 3, 283),
+new Vector3(8, 3, 270),
+new Vector3(13, 2.5f, 261),
+new Vector3(19, 2.5f, 285),
+new Vector3(16, 2.5f, 285),
+new Vector3(29, 2.5f, 284),
+new Vector3(6, 2.5f, 269),
+new Vector3(6, 2.5f, 275),
+new Vector3(6, 2.5f, 269),
+new Vector3(29, 2.5f, 284),
+new Vector3(16, 2, 259),
+new Vector3(14, 2, 287),
+new Vector3(12, 2, 287),
+new Vector3(4, 2, 268),
+new Vector3(3, 1.5f, 288),
+new Vector3(2, 1.5f, 270),
+new Vector3(36, 1, 277),
+new Vector3(21, 1, 291),
+new Vector3(17, 1, 255),
+new Vector3(36, 1, 269),
+new Vector3(35, 1, 256),
+new Vector3(12, 1, 291),
+new Vector3(35, 1, 256),
+new Vector3(109, 3, 350),
+new Vector3(105, 2.5f, 350),
+new Vector3(103, 2, 351),
+new Vector3(102, 1.5f, 357),
+new Vector3(117, 1.5f, 350),
+new Vector3(106, 1, 360),
+new Vector3(135, 7, 274),
+new Vector3(135, 6.5f, 270),
+new Vector3(138, 6.5f, 277),
+new Vector3(138, 6.5f, 277),
+new Vector3(135, 6.5f, 278),
+new Vector3(130, 6, 279),
+new Vector3(141, 6, 272),
+new Vector3(140, 6, 269),
+new Vector3(135, 6, 280),
+new Vector3(140, 6, 279),
+new Vector3(141, 6, 274),
+new Vector3(142, 5.5f, 267),
+new Vector3(127, 5.5f, 273),
+new Vector3(126, 5, 265),
+new Vector3(144, 5, 283),
+new Vector3(125, 5, 273),
+new Vector3(146, 4.5f, 263),
+new Vector3(146, 4.5f, 285),
+new Vector3(132, 4.5f, 286),
+new Vector3(123, 4.5f, 274),
+new Vector3(134, 4.5f, 262),
+new Vector3(136, 4.5f, 286),
+new Vector3(146, 4.5f, 285),
+new Vector3(136, 4, 288),
+new Vector3(120, 3.5f, 289),
+new Vector3(150, 3.5f, 259),
+new Vector3(137, 3.5f, 258),
+new Vector3(153, 3, 275),
+new Vector3(117, 3, 269),
+new Vector3(117, 3, 269),
+new Vector3(118, 3, 291),
+new Vector3(153, 3, 266),
+new Vector3(135, 3, 292),
+new Vector3(117, 3, 268),
+new Vector3(116, 2.5f, 255),
+new Vector3(154, 2.5f, 293),
+new Vector3(154, 2.5f, 255),
+new Vector3(116, 2.5f, 255),
+new Vector3(113, 2, 264),
+new Vector3(157, 2, 264),
+new Vector3(132, 2, 252),
+new Vector3(159, 1.5f, 274),
+new Vector3(141, 1.5f, 250),
+new Vector3(112, 1.5f, 251),
+new Vector3(111, 1.5f, 276),
+new Vector3(160, 1, 249),
+new Vector3(109, 1, 271),
+new Vector3(160, 1, 299),
+new Vector3(109, 1, 277),
+new Vector3(110, 1, 299),
+new Vector3(110, 1, 299),
+new Vector3(161, 1, 273),
+new Vector3(109, 1, 272),
+new Vector3(145, 1, 300),
+new Vector3(139, 6, 202),
+new Vector3(143, 5.5f, 202),
+new Vector3(135, 5.5f, 201),
+new Vector3(138, 5.5f, 206),
+new Vector3(139, 5.5f, 206),
+new Vector3(134, 5, 197),
+new Vector3(144, 5, 207),
+new Vector3(145, 5, 201),
+new Vector3(146, 4.5f, 195),
+new Vector3(141, 4.5f, 194),
+new Vector3(132, 4.5f, 209),
+new Vector3(132, 4.5f, 209),
+new Vector3(132, 4.5f, 195),
+new Vector3(132, 4.5f, 195),
+new Vector3(141, 4, 212),
+new Vector3(149, 4, 201),
+new Vector3(130, 4, 193),
+new Vector3(151, 3.5f, 205),
+new Vector3(127, 3.5f, 199),
+new Vector3(143, 3.5f, 214),
+new Vector3(140, 3.5f, 214),
+new Vector3(142, 3.5f, 214),
+new Vector3(135, 3.5f, 190),
+new Vector3(134, 3.5f, 214),
+new Vector3(126, 3, 189),
+new Vector3(126, 3, 215),
+new Vector3(126, 3, 189),
+new Vector3(126, 3, 215),
+new Vector3(152, 3, 189),
+new Vector3(123, 2.5f, 196),
+new Vector3(124, 2.5f, 217),
+new Vector3(123, 2.5f, 201),
+new Vector3(121, 2, 200),
+new Vector3(121, 2, 195),
+new Vector3(157, 2, 197),
+new Vector3(156, 2, 185),
+new Vector3(122, 2, 185),
+new Vector3(156, 2, 219),
 new Vector3(159, 1.5f, 210),
-new Vector3(159, 1, 212),
-new Vector3(167, 1, 193),
-new Vector3(161, 1, 212),
-new Vector3(148, 1, 201),
-new Vector3(149, 1, 211),
-new Vector3(148, 1, 204),
-new Vector3(168, 1, 199),
-new Vector3(168, 1, 200),
-new Vector3(237, 6, 246),
-new Vector3(234, 5.5f, 249),
-new Vector3(234, 5.5f, 243),
-new Vector3(241, 5.5f, 246),
-new Vector3(236, 5.5f, 250),
-new Vector3(243, 5, 245),
-new Vector3(232, 5, 251),
-new Vector3(245, 4.5f, 245),
-new Vector3(244, 4.5f, 253),
-new Vector3(244, 4.5f, 239),
-new Vector3(234, 4.5f, 238),
-new Vector3(245, 4.5f, 245),
-new Vector3(244, 4.5f, 239),
-new Vector3(227, 4, 243),
-new Vector3(233, 4, 256),
-new Vector3(227, 4, 244),
-new Vector3(228, 4, 237),
-new Vector3(228, 4, 237),
-new Vector3(240, 4, 256),
-new Vector3(249, 3.5f, 250),
-new Vector3(225, 3.5f, 242),
-new Vector3(249, 3.5f, 241),
-new Vector3(239, 3, 232),
-new Vector3(239, 3, 260),
-new Vector3(250, 3, 233),
-new Vector3(233, 3, 260),
-new Vector3(252, 2.5f, 231),
-new Vector3(230, 2.5f, 230),
-new Vector3(221, 2.5f, 249),
-new Vector3(253, 2.5f, 251),
-new Vector3(241, 2.5f, 262),
-new Vector3(252, 2.5f, 231),
-new Vector3(222, 2.5f, 261),
-new Vector3(240, 2, 228),
-new Vector3(219, 2, 249),
-new Vector3(255, 2, 250),
-new Vector3(254, 2, 263),
-new Vector3(243, 2, 264),
-new Vector3(257, 1.5f, 243),
-new Vector3(243, 1.5f, 266),
-new Vector3(150, 5, 73),
-new Vector3(149, 4.5f, 69),
-new Vector3(146, 4.5f, 72),
-new Vector3(150, 4.5f, 77),
-new Vector3(155, 4, 68),
-new Vector3(156, 4, 72),
-new Vector3(155, 4, 78),
-new Vector3(144, 4, 71),
-new Vector3(150, 4, 67),
-new Vector3(143, 3.5f, 66),
-new Vector3(146, 3, 83),
-new Vector3(148, 3, 63),
-new Vector3(140, 3, 73),
-new Vector3(150, 3, 83),
-new Vector3(152, 3, 83),
-new Vector3(150, 3, 83),
-new Vector3(139, 2.5f, 62),
-new Vector3(139, 2.5f, 84),
-new Vector3(152, 2.5f, 85),
-new Vector3(139, 2.5f, 84),
-new Vector3(155, 2, 87),
-new Vector3(167, 1, 56),
-new Vector3(168, 1, 72),
-new Vector3(168, 1, 79),
-new Vector3(133, 1, 56),
-new Vector3(142, 1, 91),
-new Vector3(168, 1, 69),
-new Vector3(133, 1, 56),
-new Vector3(147, 1, 91),
-new Vector3(167, 1, 90),
-new Vector3(168, 1, 70),
-new Vector3(167, 1, 90),
-new Vector3(184, 6, 197),
-new Vector3(184, 5.5f, 193),
-new Vector3(188, 5.5f, 196),
-new Vector3(179, 5, 192),
-new Vector3(189, 5, 192),
-new Vector3(183, 5, 203),
-new Vector3(189, 5, 202),
-new Vector3(176, 4.5f, 194),
-new Vector3(192, 4.5f, 197),
-new Vector3(177, 4.5f, 204),
-new Vector3(181, 4.5f, 205),
-new Vector3(194, 4, 198),
-new Vector3(194, 4, 199),
-new Vector3(184, 4, 207),
-new Vector3(174, 4, 194),
-new Vector3(174, 4, 199),
-new Vector3(174, 4, 198),
-new Vector3(172, 3.5f, 200),
-new Vector3(189, 3, 211),
-new Vector3(187, 2.5f, 213),
-new Vector3(200, 2.5f, 190),
-new Vector3(169, 2.5f, 182),
-new Vector3(199, 2.5f, 212),
-new Vector3(169, 2.5f, 212),
-new Vector3(166, 2, 200),
-new Vector3(166, 2, 191),
-new Vector3(202, 2, 201),
-new Vector3(190, 2, 215),
-new Vector3(166, 2, 202),
-new Vector3(183, 1.5f, 217),
-new Vector3(179, 1, 219),
-new Vector3(205, 1, 176),
-new Vector3(189, 1, 219),
-new Vector3(180, 1, 219),
-new Vector3(162, 1, 206),
-new Vector3(206, 1, 202),
-new Vector3(162, 1, 199),
-new Vector3(187, 1, 219),
-new Vector3(377, 4, 128),
-new Vector3(376, 3, 122),
-new Vector3(375, 2.5f, 136),
-new Vector3(384, 2.5f, 135),
-new Vector3(377, 2.5f, 136),
-new Vector3(376, 2, 138),
-new Vector3(365, 1.5f, 127),
-new Vector3(366, 1.5f, 117),
-new Vector3(366, 1.5f, 139),
-new Vector3(379, 1.5f, 140),
-new Vector3(371, 1, 142),
-new Vector3(381, 1, 114),
-new Vector3(364, 1, 115),
-new Vector3(391, 1, 127),
-new Vector3(363, 1, 130),
-new Vector3(363, 1, 129),
-new Vector3(364, 1, 115),
-new Vector3(391, 1, 127),
-new Vector3(188, 6, 304),
-new Vector3(188, 5.5f, 308),
-new Vector3(191, 5.5f, 301),
-new Vector3(184, 5.5f, 304),
-new Vector3(194, 5, 303),
-new Vector3(183, 5, 299),
-new Vector3(196, 4.5f, 301),
-new Vector3(181, 4.5f, 297),
-new Vector3(179, 4, 313),
-new Vector3(179, 4, 295),
-new Vector3(200, 3.5f, 300),
-new Vector3(177, 3.5f, 315),
-new Vector3(177, 3.5f, 293),
-new Vector3(199, 3.5f, 293),
-new Vector3(199, 3.5f, 315),
-new Vector3(176, 3.5f, 305),
-new Vector3(185, 3.5f, 292),
-new Vector3(174, 3, 307),
-new Vector3(201, 3, 317),
-new Vector3(172, 2.5f, 301),
-new Vector3(171, 2, 287),
-new Vector3(192, 2, 322),
-new Vector3(206, 2, 296),
-new Vector3(205, 2, 321),
-new Vector3(207, 1.5f, 285),
-new Vector3(208, 1.5f, 300),
-new Vector3(169, 1.5f, 323),
-new Vector3(168, 1.5f, 312),
-new Vector3(169, 1.5f, 323),
-new Vector3(168, 1.5f, 305),
-new Vector3(197, 1, 282),
-new Vector3(166, 1, 308),
-new Vector3(166, 1, 304),
-new Vector3(184, 1, 326),
-new Vector3(194, 1, 326),
-new Vector3(209, 1, 283),
-new Vector3(391, 3, 189),
-new Vector3(394, 2.5f, 186),
-new Vector3(387, 2.5f, 188),
-new Vector3(390, 2.5f, 193),
-new Vector3(388, 2.5f, 192),
-new Vector3(390, 2.5f, 193),
-new Vector3(397, 2, 187),
-new Vector3(390, 2, 195),
-new Vector3(397, 2, 188),
-new Vector3(386, 2, 194),
-new Vector3(390, 2, 183),
-new Vector3(398, 1.5f, 182),
-new Vector3(383, 1.5f, 189),
-new Vector3(398, 1.5f, 182),
-new Vector3(383, 1.5f, 189),
-new Vector3(393, 1.5f, 197),
-new Vector3(394, 1, 199),
-new Vector3(390, 5, 314),
-new Vector3(394, 4.5f, 314),
-new Vector3(386, 4.5f, 313),
-new Vector3(387, 4.5f, 317),
-new Vector3(390, 4.5f, 318),
-new Vector3(385, 4, 309),
-new Vector3(384, 4, 313),
-new Vector3(391, 4, 320),
-new Vector3(385, 4, 309),
-new Vector3(384, 4, 315),
-new Vector3(388, 3.5f, 322),
-new Vector3(398, 3.5f, 311),
-new Vector3(397, 3.5f, 307),
-new Vector3(392, 3.5f, 322),
-new Vector3(389, 3.5f, 322),
-new Vector3(390, 3.5f, 322),
-new Vector3(383, 3.5f, 321),
-new Vector3(381, 3, 305),
-new Vector3(380, 3, 310),
-new Vector3(379, 2.5f, 303),
-new Vector3(391, 2.5f, 326),
-new Vector3(377, 2, 301),
-new Vector3(391, 2, 300),
-new Vector3(396, 1, 296),
-new Vector3(372, 1, 306),
-new Vector3(373, 1, 331),
-new Vector3(373, 1, 297),
-new Vector3(391, 1, 332),
-new Vector3(386, 1, 296)
+new Vector3(145, 1.5f, 182),
+new Vector3(119, 1.5f, 195),
+new Vector3(134, 1.5f, 222),
+new Vector3(158, 1.5f, 221),
+new Vector3(118, 1, 223),
+new Vector3(139, 1, 180),
+new Vector3(160, 1, 223),
+new Vector3(160, 1, 181),
+new Vector3(118, 1, 181),
+new Vector3(117, 1, 197),
+new Vector3(147, 1, 224),
+new Vector3(161, 1, 204),
+new Vector3(118, 1, 223),
+new Vector3(117, 1, 205),
+new Vector3(145, 1, 224),
+new Vector3(148, 1, 224),
+new Vector3(117, 1, 209),
+new Vector3(51, 4, 172),
+new Vector3(55, 3.5f, 172),
+new Vector3(54, 3.5f, 169),
+new Vector3(48, 3.5f, 169),
+new Vector3(48, 3.5f, 175),
+new Vector3(54, 3.5f, 175),
+new Vector3(57, 3, 173),
+new Vector3(57, 3, 173),
+new Vector3(45, 3, 170),
+new Vector3(57, 3, 172),
+new Vector3(59, 2.5f, 171),
+new Vector3(43, 2.5f, 169),
+new Vector3(51, 2.5f, 180),
+new Vector3(59, 2.5f, 172),
+new Vector3(43, 2.5f, 170),
+new Vector3(61, 2, 173),
+new Vector3(41, 2, 174),
+new Vector3(47, 2, 162),
+new Vector3(41, 2, 175),
+new Vector3(47, 1.5f, 160),
+new Vector3(39, 1.5f, 176),
+new Vector3(37, 1, 175),
+new Vector3(50, 1, 186),
+new Vector3(65, 1, 177),
+new Vector3(38, 1, 159),
+new Vector3(64, 1, 159),
+new Vector3(65, 1, 170),
+new Vector3(37, 1, 173),
+new Vector3(47, 1, 186),
+new Vector3(65, 1, 177),
+new Vector3(115, 4, 103),
+new Vector3(111, 3.5f, 102),
+new Vector3(113, 3, 109),
+new Vector3(115, 3, 109),
+new Vector3(121, 3, 103),
+new Vector3(115, 3, 109),
+new Vector3(121, 3, 104),
+new Vector3(116, 3, 109),
+new Vector3(122, 2.5f, 96),
+new Vector3(107, 2.5f, 100),
+new Vector3(125, 2, 104),
+new Vector3(106, 2, 112),
+new Vector3(112, 1.5f, 91),
+new Vector3(102, 1, 90),
+new Vector3(128, 1, 90),
+new Vector3(129, 1, 97),
+new Vector3(129, 1, 101),
+new Vector3(116, 1, 89),
+new Vector3(128, 1, 116),
+new Vector3(332, 6, 165),
+new Vector3(331, 5.5f, 161),
+new Vector3(335, 5.5f, 162),
+new Vector3(333, 5, 171),
+new Vector3(326, 5, 165),
+new Vector3(331, 5, 171),
+new Vector3(339, 4.5f, 158),
+new Vector3(322, 4, 165),
+new Vector3(323, 4, 174),
+new Vector3(320, 3.5f, 164),
+new Vector3(321, 3.5f, 154),
+new Vector3(327, 3, 179),
+new Vector3(337, 3, 179),
+new Vector3(337, 3, 151),
+new Vector3(331, 3, 179),
+new Vector3(319, 3, 178),
+new Vector3(316, 2.5f, 164),
+new Vector3(348, 2.5f, 165),
+new Vector3(316, 2.5f, 169),
+new Vector3(317, 2.5f, 150),
+new Vector3(332, 2.5f, 181),
+new Vector3(327, 2.5f, 149),
+new Vector3(349, 2, 182),
+new Vector3(314, 2, 171),
+new Vector3(337, 2, 183),
+new Vector3(340, 1.5f, 185),
+new Vector3(331, 1.5f, 185),
+new Vector3(313, 1.5f, 184),
+new Vector3(312, 1.5f, 169),
+new Vector3(351, 1.5f, 184),
+new Vector3(352, 1.5f, 166),
+new Vector3(336, 1.5f, 185),
+new Vector3(353, 1, 144),
+new Vector3(354, 1, 162),
+new Vector3(311, 1, 144),
+new Vector3(354, 1, 165),
+new Vector3(354, 1, 168),
+new Vector3(354, 1, 157),
+new Vector3(310, 1, 173),
+new Vector3(354, 1, 160),
+new Vector3(353, 1, 186),
+new Vector3(311, 1, 144),
+new Vector3(310, 1, 159),
+new Vector3(327, 1, 187),
+new Vector3(353, 1, 186),
+new Vector3(265, 5, 195),
+new Vector3(262, 4.5f, 192),
+new Vector3(266, 4, 201),
+new Vector3(260, 4, 190),
+new Vector3(259, 4, 193),
+new Vector3(273, 3.5f, 197),
+new Vector3(257, 3.5f, 192),
+new Vector3(258, 3.5f, 188),
+new Vector3(257, 3.5f, 195),
+new Vector3(274, 3, 186),
+new Vector3(256, 3, 186),
+new Vector3(274, 3, 204),
+new Vector3(275, 3, 191),
+new Vector3(253, 2.5f, 198),
+new Vector3(277, 2.5f, 192),
+new Vector3(251, 2, 200),
+new Vector3(250, 1.5f, 180),
+new Vector3(281, 1.5f, 193),
+new Vector3(247, 1, 198),
+new Vector3(282, 1, 178),
+new Vector3(140, 5, 262),
+new Vector3(144, 4.5f, 261),
+new Vector3(143, 4.5f, 259),
+new Vector3(137, 4.5f, 265),
+new Vector3(144, 4.5f, 262),
+new Vector3(145, 4, 267),
+new Vector3(145, 4, 267),
+new Vector3(135, 4, 257),
+new Vector3(132, 3.5f, 262),
+new Vector3(133, 3.5f, 255),
+new Vector3(133, 3.5f, 269),
+new Vector3(147, 3.5f, 255),
+new Vector3(148, 3.5f, 261),
+new Vector3(147, 3.5f, 269),
+new Vector3(147, 3.5f, 269),
+new Vector3(131, 3, 271),
+new Vector3(131, 3, 253),
+new Vector3(135, 2.5f, 250),
+new Vector3(152, 2.5f, 260),
+new Vector3(151, 2.5f, 251),
+new Vector3(136, 2.5f, 274),
+new Vector3(136, 2.5f, 274),
+new Vector3(136, 2.5f, 274),
+new Vector3(152, 2.5f, 266),
+new Vector3(151, 2.5f, 251),
+new Vector3(154, 2, 263),
+new Vector3(153, 2, 275),
+new Vector3(127, 2, 249),
+new Vector3(127, 2, 249),
+new Vector3(154, 2, 267),
+new Vector3(145, 2, 276),
+new Vector3(155, 1.5f, 277),
+new Vector3(125, 1.5f, 247),
+new Vector3(125, 1.5f, 277),
+new Vector3(124, 1.5f, 257),
+new Vector3(124, 1.5f, 256),
+new Vector3(146, 1.5f, 246),
+new Vector3(141, 1.5f, 246),
+new Vector3(145, 1.5f, 278),
+new Vector3(155, 1.5f, 247),
+new Vector3(142, 1.5f, 246),
+new Vector3(123, 1, 245),
+new Vector3(122, 1, 265),
+new Vector3(158, 1, 255),
+new Vector3(158, 1, 266),
+new Vector3(123, 1, 245),
+new Vector3(157, 1, 245),
+new Vector3(147, 1, 280),
+new Vector3(158, 1, 269),
+new Vector3(158, 1, 269),
+new Vector3(169, 4, 104),
+new Vector3(173, 3.5f, 103),
+new Vector3(166, 3.5f, 107),
+new Vector3(166, 3.5f, 101),
+new Vector3(164, 3, 99),
+new Vector3(174, 3, 99),
+new Vector3(161, 2.5f, 101),
+new Vector3(160, 2, 95),
+new Vector3(159, 2, 105),
+new Vector3(179, 2, 107),
+new Vector3(167, 2, 114),
+new Vector3(179, 2, 102),
+new Vector3(167, 2, 114),
+new Vector3(159, 2, 103),
+new Vector3(165, 1.5f, 92),
+new Vector3(166, 1.5f, 92),
+new Vector3(180, 1.5f, 115),
+new Vector3(183, 1, 100),
+new Vector3(156, 1, 91),
+new Vector3(251, 3, 329),
+new Vector3(248, 2.5f, 326),
+new Vector3(247, 2.5f, 328),
+new Vector3(245, 2, 328),
+new Vector3(259, 1.5f, 326),
+new Vector3(243, 1.5f, 327),
+new Vector3(259, 1.5f, 329),
+new Vector3(244, 1.5f, 336),
+new Vector3(258, 1.5f, 336),
+new Vector3(260, 1, 320),
+new Vector3(241, 1, 326),
+new Vector3(248, 1, 319),
+new Vector3(241, 1, 328),
+new Vector3(324, 5, 34),
+new Vector3(327, 4.5f, 31),
+new Vector3(319, 4, 29),
+new Vector3(319, 4, 29),
+new Vector3(329, 4, 29),
+new Vector3(330, 4, 35),
+new Vector3(332, 3.5f, 31),
+new Vector3(323, 3.5f, 42),
+new Vector3(321, 3.5f, 42),
+new Vector3(317, 3.5f, 41),
+new Vector3(331, 3.5f, 41),
+new Vector3(331, 3.5f, 27),
+new Vector3(315, 3, 25),
+new Vector3(326, 3, 44),
+new Vector3(320, 3, 44),
+new Vector3(313, 2.5f, 23),
+new Vector3(335, 2.5f, 23),
+new Vector3(312, 2.5f, 37),
+new Vector3(335, 2.5f, 23),
+new Vector3(324, 2.5f, 22),
+new Vector3(313, 2.5f, 45),
+new Vector3(312, 2.5f, 29),
+new Vector3(337, 2, 47),
+new Vector3(311, 2, 47),
+new Vector3(329, 1.5f, 50),
+new Vector3(324, 1.5f, 50),
+new Vector3(340, 1.5f, 38),
+new Vector3(308, 1.5f, 29),
+new Vector3(308, 1.5f, 40),
+new Vector3(309, 1.5f, 19),
+new Vector3(309, 1.5f, 19),
+new Vector3(306, 1, 32),
+new Vector3(383, 3, 93),
+new Vector3(380, 2.5f, 96),
+new Vector3(379, 2.5f, 92),
+new Vector3(387, 2.5f, 93),
+new Vector3(388, 2, 88),
+new Vector3(377, 2, 92),
+new Vector3(381, 2, 87),
+new Vector3(378, 2, 98),
+new Vector3(381, 2, 99),
+new Vector3(383, 2, 99),
+new Vector3(390, 1.5f, 86),
+new Vector3(375, 1.5f, 91),
+new Vector3(391, 1.5f, 93),
+new Vector3(391, 1.5f, 91),
+new Vector3(379, 1, 83),
+new Vector3(392, 1, 84),
+new Vector3(383, 1, 83),
+new Vector3(44, 7, 143),
+new Vector3(40, 6.5f, 143),
+new Vector3(48, 6.5f, 143),
+new Vector3(47, 6.5f, 146),
+new Vector3(44, 6.5f, 147),
+new Vector3(49, 6, 148),
+new Vector3(49, 6, 138),
+new Vector3(44, 6, 149),
+new Vector3(44, 6, 137),
+new Vector3(52, 5.5f, 140),
+new Vector3(52, 5.5f, 145),
+new Vector3(43, 5.5f, 151),
+new Vector3(36, 5.5f, 144),
+new Vector3(46, 5.5f, 151),
+new Vector3(54, 5, 145),
+new Vector3(56, 4.5f, 147),
+new Vector3(41, 4.5f, 155),
+new Vector3(55, 4.5f, 132),
+new Vector3(56, 4.5f, 138),
+new Vector3(39, 4.5f, 155),
+new Vector3(47, 4.5f, 155),
+new Vector3(30, 4, 143),
+new Vector3(58, 4, 137),
+new Vector3(39, 4, 129),
+new Vector3(30, 4, 139),
+new Vector3(31, 4, 130),
+new Vector3(31, 4, 130),
+new Vector3(39, 4, 157),
+new Vector3(60, 3.5f, 145),
+new Vector3(27, 3, 160),
+new Vector3(26, 3, 146),
+new Vector3(50, 3, 125),
+new Vector3(40, 3, 161),
+new Vector3(26, 3, 141),
+new Vector3(27, 3, 126),
+new Vector3(26, 3, 136),
+new Vector3(63, 2.5f, 124),
+new Vector3(25, 2.5f, 162),
+new Vector3(63, 2.5f, 124),
+new Vector3(50, 2.5f, 163),
+new Vector3(37, 2.5f, 123),
+new Vector3(64, 2.5f, 139),
+new Vector3(50, 2.5f, 163),
+new Vector3(36, 2.5f, 163),
+new Vector3(44, 2.5f, 163),
+new Vector3(24, 2.5f, 148),
+new Vector3(53, 2, 121),
+new Vector3(23, 2, 164),
+new Vector3(48, 1.5f, 167),
+new Vector3(20, 1.5f, 135),
+new Vector3(67, 1.5f, 120),
+new Vector3(20, 1.5f, 150),
+new Vector3(67, 1.5f, 166),
+new Vector3(21, 1.5f, 120),
+new Vector3(67, 1.5f, 120),
+new Vector3(46, 1.5f, 167),
+new Vector3(67, 1.5f, 166),
+new Vector3(45, 1.5f, 167),
+new Vector3(20, 1.5f, 134),
+new Vector3(67, 1.5f, 166),
+new Vector3(38, 1, 169),
+new Vector3(53, 1, 169),
+new Vector3(70, 1, 147),
+new Vector3(70, 1, 132),
+new Vector3(33, 1, 169),
+new Vector3(48, 1, 169),
+new Vector3(44, 1, 117),
+new Vector3(48, 1, 169),
+new Vector3(70, 1, 151),
+new Vector3(70, 1, 145),
+new Vector3(35, 1, 117),
+new Vector3(69, 1, 168)
             };
         }
 
@@ -938,6 +874,14 @@ new Vector3(386, 1, 296)
         {
             PonerTerreno(plano);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x - 2, z], y, 90) == true && ComprobarTerreno1(terrenos[x - 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x - 2, z - 1], y, 90) == true && ComprobarTerreno1(terrenos[x - 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
 
         //---------------------------------------
 
@@ -1005,6 +949,10 @@ new Vector3(386, 1, 296)
             PonerTerreno(esquina3rotacion270);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno0(terrenos[x - 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x - 1, z - 2], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion270);
         }
@@ -1136,6 +1084,10 @@ new Vector3(386, 1, 296)
             PonerTerreno(rampas4rotacion0);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x - 2, z]) == true && ComprobarTerreno1(terrenos[x, z + 2], y - 0.5f, 180) == true)
+        {
+            PonerTerreno(rampas4rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x - 2, z]) == true && ComprobarTerreno3(terrenos[x, z + 2], y - 0.5f, 180) == true)
         {
             PonerTerreno(rampas4rotacion0);
         }
@@ -1439,6 +1391,10 @@ new Vector3(386, 1, 296)
         {
             PonerTerreno(esquina3rotacion180);
         }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
 
         //---------------------------------------
 
@@ -1468,6 +1424,10 @@ new Vector3(386, 1, 296)
         {
             PonerTerreno(esquina3rotacion0);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
 
         //---------------------------------------
 
@@ -1490,6 +1450,10 @@ new Vector3(386, 1, 296)
             PonerTerreno(rampa1rotacion0);
         }
         else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z - 2], y, 0) == true)
+        {
+            PonerTerreno(rampa1rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x, z - 2], y, 0) == true)
         {
             PonerTerreno(rampa1rotacion0);
         }
@@ -1608,6 +1572,14 @@ new Vector3(386, 1, 296)
         {
             PonerTerreno(esquina3rotacion0);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
 
         //---------------------------------------
 
@@ -1679,6 +1651,10 @@ new Vector3(386, 1, 296)
             PonerTerreno(esquina3rotacion270);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion270);
         }
@@ -1852,6 +1828,22 @@ new Vector3(386, 1, 296)
         {
             PonerTerreno(plano);
         }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x - 1, z - 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x - 1, z - 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x - 1, z - 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x - 1, z - 2], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
         else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x, z - 2], y, 270) == true)
         {
             PonerTerreno(plano);
@@ -1905,6 +1897,10 @@ new Vector3(386, 1, 296)
             PonerTerreno(plano);
         }
         else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x, z - 2], y, 0) == true)
         {
             PonerTerreno(plano);
         }
@@ -1997,6 +1993,10 @@ new Vector3(386, 1, 296)
         {
             PonerTerreno(esquina3rotacion90);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x - 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
 
         //---------------------------------------
 
@@ -2079,6 +2079,14 @@ new Vector3(386, 1, 296)
             PonerTerreno(esquina3rotacion180);
         }
         else if (ComprobarTerreno1(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion180);
         }
@@ -2199,6 +2207,22 @@ new Vector3(386, 1, 296)
             PonerTerreno(plano);
         }
         else if (ComprobarTerreno1(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x - 1, z - 1], y, 0) == true && ComprobarTerreno1(terrenos[x - 1, z + 1], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x - 1, z - 1], y, 270) == true && ComprobarTerreno2(terrenos[x - 2, z + 1], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 180) == true && ComprobarTerreno0(terrenos[x - 2, z - 1], y, 0) == true && ComprobarTerreno0(terrenos[x - 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 1, z - 1], y, 0) == true && ComprobarTerreno0(terrenos[x - 1, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 180) == true && ComprobarTerreno2(terrenos[x - 1, z - 1], y, 0) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 90) == true)
         {
             PonerTerreno(plano);
         }
@@ -2352,6 +2376,10 @@ new Vector3(386, 1, 296)
             PonerTerreno(esquina3rotacion270);
         }
         else if (ComprobarTerreno1(terrenos[x, z], y, 180) == true && ComprobarTerreno0(terrenos[x - 1, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x - 2, z - 1], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion270);
         }
@@ -2561,6 +2589,26 @@ new Vector3(386, 1, 296)
             PonerTerreno(plano);
         }
         else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 2], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 1, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 1], y, 90) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno2(terrenos[x - 1, z + 2], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z + 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 270) == true && ComprobarTerreno0(terrenos[x - 1, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 180) == true)
         {
             PonerTerreno(plano);
         }
@@ -2902,6 +2950,26 @@ new Vector3(386, 1, 296)
         {
             PonerTerreno(plano);
         }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
         else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x + 2, z], y, 180) == true)
         {
             PonerTerreno(plano);
@@ -3055,6 +3123,14 @@ new Vector3(386, 1, 296)
         {
             PonerTerreno(esquina3rotacion0);
         }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z - 1], y, 270) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
 
         //---------------------------------------
 
@@ -3141,6 +3217,10 @@ new Vector3(386, 1, 296)
             PonerTerreno(esquina3rotacion90);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion90);
         }
@@ -3306,6 +3386,36 @@ new Vector3(386, 1, 296)
                     }
                 }
             }              
+        }
+
+        return false;
+    }
+
+    private bool ComprobarTerreno3(Terreno terreno, float altura, int rotacion)
+    {
+        if (terreno != null)
+        {
+            if (ComprobarLimiteX((int)terreno.posicion.x, 3) == true && ComprobarLimiteZ((int)terreno.posicion.z, 3) == true)
+            {
+                if (terreno.posicion.y == (altura + 0.5f))
+                {
+                    if (terreno.rotacion == rotacion)
+                    {
+                        if (terreno.id == 3)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (altura - terreno.posicion.y >= 0.5f)
+                    {
+                        BorrarTerreno(terreno);
+                        return false;
+                    }
+                }
+            }
         }
 
         return false;
