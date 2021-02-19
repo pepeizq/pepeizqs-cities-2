@@ -7,16 +7,21 @@ using Random = UnityEngine.Random;
 
 public class Escenario : MonoBehaviour
 {
+    [Header("Debug")]
+    public bool RecortarBordes;
+    public bool PonerLlano;
 
-
+    [Header("Scripts")]
     public Arranque arranque;
 
+    [Header("Prefabs")]
     public Terreno[] casillas;
 
     [HideInInspector]
     public Terreno[,] terrenos = new Terreno[1, 1];
 
-    private float alturaNivel = 8;
+    [Header("Opciones")]
+    public float alturaMaxima = 8;
 
     public void Start()
     {
@@ -24,12 +29,10 @@ public class Escenario : MonoBehaviour
 
         List<Vector3> listadoCasillasInicial = new List<Vector3>();
 
-        bool aleatorio = false;
+        bool aleatorio = true;
 
         if (aleatorio == true)
         {
-            listadoCasillasInicial = new List<Vector3>();
-
             GUIUtility.systemCopyBuffer = null;
           
             int montañasGenerar = (int)arranque.tamañoEscenarioX / 100 * (int)arranque.tamañoEscenarioZ / 100;
@@ -38,7 +41,7 @@ public class Escenario : MonoBehaviour
             int i = 1;
             while (i <= montañasGenerar)
             {
-                float alturaCasilla = (int)Random.Range(3, alturaNivel);
+                float alturaCasilla = (int)Random.Range(3, alturaMaxima);
              
                 int posicionX = (int)Random.Range(0 + alturaCasilla, (int)arranque.tamañoEscenarioX - alturaCasilla);
                 int posicionZ = (int)Random.Range(0 + alturaCasilla, (int)arranque.tamañoEscenarioZ - alturaCasilla);
@@ -759,23 +762,32 @@ new Vector3(253, 1, 173)
         }
 
         int k = 0;
-        while (k < arranque.tamañoEscenarioX)
+        int tope = (int)alturaMaxima * 2;
+        while (k < tope)
         {
-            if (alturaNivel == 0.5f)
+            if (alturaMaxima == 0.5f)
             {
-                //PonerLlano(alturaNivel);
-                //RecortarBordes();
+                if (RecortarBordes == true)
+                {
+                    RecortarBordes2();                  
+                }
+                
+                if (PonerLlano == true)
+                {
+                    PonerLlano2(alturaMaxima);
+                }
+
                 break;
             }
 
-            alturaNivel -= 0.5f;
+            alturaMaxima -= 0.5f;
 
-            if (alturaNivel < 0.5f)
+            if (alturaMaxima < 0.5f)
             {
-                alturaNivel = 0.5f;
+                alturaMaxima = 0.5f;
             }
 
-            GenerarNivel(alturaNivel, listadoCasillasInicial);
+            GenerarNivel(alturaMaxima, listadoCasillasInicial);
             k += 1;
         }
     }
@@ -1369,6 +1381,14 @@ new Vector3(253, 1, 173)
         {
             PonerTerreno(rampas4rotacion0);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z - 2], y, 270) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarTerreno1(terrenos[x, z - 2], y - 0.5f, 270) == true)
+        {
+            PonerTerreno(rampas4rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z - 2], y, 270) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarTerreno2(terrenos[x, z - 2], y - 0.5f, 0) == true)
+        {
+            PonerTerreno(rampas4rotacion0);
+        }
 
         //---------------------------------------
 
@@ -1406,6 +1426,14 @@ new Vector3(253, 1, 173)
         {
             PonerTerreno(plano);
         }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
 
         //---------------------------------------
 
@@ -1440,6 +1468,10 @@ new Vector3(253, 1, 173)
             PonerTerreno(esquina3rotacion180);
         }
         else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z - 2], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion180);
         }
@@ -1579,7 +1611,7 @@ new Vector3(253, 1, 173)
         {
             PonerTerreno(rampas4rotacion90);
         }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarVacio(terrenos[x, z + 2]) == true)
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarRampas(x, z, 2, 2) == true)
         {
             PonerTerreno(rampas4rotacion90);
         }
@@ -1592,6 +1624,18 @@ new Vector3(253, 1, 173)
             PonerTerreno(rampas4rotacion90);
         }
         else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarTerreno2(terrenos[x, z + 2], y - 0.5f, 90) == true)
+        {
+            PonerTerreno(rampas4rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarTerreno2(terrenos[x, z + 2], y - 0.5f, 90) == true)
+        {
+            PonerTerreno(rampas4rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarTerreno3(terrenos[x, z + 2], y - 0.5f, 90) == true)
+        {
+            PonerTerreno(rampas4rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarTerreno1(terrenos[x, z + 2], y - 0.5f, 0) == true)
         {
             PonerTerreno(rampas4rotacion90);
         }
@@ -1652,6 +1696,26 @@ new Vector3(253, 1, 173)
         {
             PonerTerreno(plano);
         }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 1], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z + 1], y, 180) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
 
         //---------------------------------------
 
@@ -1686,6 +1750,18 @@ new Vector3(253, 1, 173)
             PonerTerreno(esquina3rotacion0);
         }
         else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion0);
         }
@@ -1730,7 +1806,11 @@ new Vector3(253, 1, 173)
         {
             PonerTerreno(esquina3rotacion90);
         }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x + 2, z + 1]) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion90);
         }
@@ -3199,6 +3279,34 @@ new Vector3(253, 1, 173)
         {
             PonerTerreno(plano);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 1], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno1(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 1], y, 180) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x + 1, z + 1], y, 90) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 1], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 1], y, 180) == true && ComprobarTerreno2(terrenos[x + 2, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 1], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
         else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno1(terrenos[x + 2, z], y, 180) == true)
         {
             PonerTerreno(plano);
@@ -3626,7 +3734,20 @@ new Vector3(253, 1, 173)
         }
     }
 
-    private void PonerLlano(float altura)
+    private bool ComprobarRampas(int x, int z, int xUbicacion, int zUbicacion)
+    {
+        if (ComprobarVacio(terrenos[x + (xUbicacion / 2), z]) == true && ComprobarVacio(terrenos[x + xUbicacion, z]) == true && ComprobarVacio(terrenos[x + xUbicacion, z + (zUbicacion / 2)]) == true)
+        {
+            if (ComprobarVacio(terrenos[x, z + (zUbicacion / 2)]) == true && ComprobarVacio(terrenos[x, z + zUbicacion]) == true && ComprobarVacio(terrenos[x + (xUbicacion / 2), z + zUbicacion]) == true)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void PonerLlano2(float altura)
     {
         for (int x = 0; x < terrenos.GetLength(0); x++)
         {
@@ -3641,7 +3762,7 @@ new Vector3(253, 1, 173)
         }
     }
 
-    private void RecortarBordes()
+    private void RecortarBordes2()
     {
         int borde = 3;
 
