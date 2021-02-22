@@ -668,6 +668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe316b79ee397384bb9c84d3f4219674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Colores: 1
+  RecortarBordes: 0
+  PonerLlano: 0
   arranque: {fileID: 77562019}
   casillas:
   - {fileID: -2070812219386385408, guid: 283ff9afbaaed904387711ef6e2d514b, type: 3}
@@ -710,7 +713,7 @@ MonoBehaviour:
   - {fileID: -3589603228177465714, guid: 659d2a269e41e72499171d8510bf2999, type: 3}
   - {fileID: 6121862778323575149, guid: 568f75c7f07aa4748a16978b98bc59eb, type: 3}
   - {fileID: 3838918074520509923, guid: 41cb1bece9764a046ab1fcb5ff69d18f, type: 3}
-  teclaGenerarNivel: 32
+  alturaMaxima: 8
 --- !u!1 &2019977290
 GameObject:
   m_ObjectHideFlags: 0
