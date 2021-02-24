@@ -6,6 +6,9 @@ public class Terreno : MonoBehaviour
     public bool edificable;
 
     [HideInInspector]
+    public int idDebug;
+
+    [HideInInspector]
     public Vector3 posicion;
 
     [HideInInspector]

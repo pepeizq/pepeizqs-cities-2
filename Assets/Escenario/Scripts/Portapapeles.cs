@@ -1,0 +1,28 @@
+﻿using System;
+using UnityEngine;
+
+public class Portapapeles : MonoBehaviour
+{
+    [Header("Debug")]
+    public bool estado;
+
+    public void LimpiarPortapapeles()
+    {
+        if (estado == true)
+        {
+            GUIUtility.systemCopyBuffer = null;
+        }       
+    }
+
+    public void CopiarPortapapeles(Vector3 vector)
+    {
+        if (estado == true)
+        {
+            string y = vector.y.ToString("0.00");
+            y = y.Replace(",00", null);
+            y = y.Replace(",50", ".5f");
+
+            GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Vector3(" + vector.x.ToString() + ", " + y + ", " + vector.z.ToString() + ")," + Environment.NewLine;
+        }
+    }
+}
