@@ -1,25 +1,20 @@
 ﻿using Interfaz;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace Juego
 {
     public class Arranque : MonoBehaviour
     {
-        //Tamaño Escenario
+        [Header("Opciones")]
         public int tamañoEscenarioX;
         public int tamañoEscenarioZ;
 
-
-
+        [Header("Canvas")]
         public Canvas canvas;
 
+        [Header("Scripts")]
         public Partidas partidas;
-
         public Escenario escenario;
-
         public Panel panelDatos;
 
         private void Start()
@@ -81,6 +76,11 @@ namespace Juego
             //posicion.y = posicion.y - 35;
 
             //panelDatos.gameObject.transform.position = posicion;          
+        }
+
+        public void Reiniciar()
+        {
+            Interfaz.Reiniciar.Escena();
         }
     }
 }
