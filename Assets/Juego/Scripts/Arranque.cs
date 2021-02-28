@@ -10,16 +10,17 @@ namespace Juego
         public int tamañoEscenarioZ;
 
         [Header("Canvas")]
-        public Canvas canvas;
+        public Canvas canvasJuego;
 
         [Header("Scripts")]
         public Partidas partidas;
         public Escenario escenario;
         public Panel panelDatos;
+        public Carga carga;
 
         private void Start()
         {
-            Objetos.Mostrar(canvas.gameObject);
+            Objetos.Mostrar(canvasJuego.gameObject);
             //escenario.GenerarAleatorio(10);
 
             //List<Partida> partidasGuardadas = new List<Partida>();
@@ -80,7 +81,7 @@ namespace Juego
 
         public void Reiniciar()
         {
-            Interfaz.Reiniciar.Escena();
+            carga.Iniciar(canvasJuego);
         }
     }
 }
