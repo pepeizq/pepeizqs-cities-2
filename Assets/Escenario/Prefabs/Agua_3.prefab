@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8351699816617848374}
   - component: {fileID: 4920438979603243411}
   - component: {fileID: 7182148934623319385}
+  - component: {fileID: 240118135816958047}
   m_Layer: 0
   m_Name: Agua_3
   m_TagString: Untagged
@@ -84,3 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &240118135816958047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8695573570878960780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce831bd6425b6a43b48eba6faf5e5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 8
+  edificable: 0
+  idDebug: 0
+  posicion: {x: 0, y: 0, z: 0}
+  rotacion: 0
