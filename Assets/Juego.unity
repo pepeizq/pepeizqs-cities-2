@@ -973,6 +973,7 @@ MonoBehaviour:
   coloresAltura: 0
   ponerLlano: 1
   arranque: {fileID: 77562019}
+  agua: {fileID: 0}
   portapapeles: {fileID: 1379026156}
   casillas:
   - {fileID: -2070812219386385408, guid: 283ff9afbaaed904387711ef6e2d514b, type: 3}

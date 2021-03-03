@@ -15,6 +15,7 @@ public class Escenario : MonoBehaviour
 
     [Header("Scripts")]
     public Arranque arranque;
+    public Agua agua;
     public Portapapeles portapapeles;
 
     [Header("Prefabs")]
@@ -197,386 +198,417 @@ public class Escenario : MonoBehaviour
         }
         else
         {
-            listadoCasillasInicial = new List<Vector3> {new Vector3(36, 4, 62),
-new Vector3(33, 3.5f, 59),
-new Vector3(35, 3.5f, 66),
-new Vector3(32, 3.5f, 61),
-new Vector3(37, 3, 56),
-new Vector3(31, 3, 57),
-new Vector3(37, 2.5f, 70),
-new Vector3(29, 2.5f, 69),
-new Vector3(45, 2, 58),
-new Vector3(45, 2, 59),
-new Vector3(45, 2, 60),
-new Vector3(46, 2, 58),
-new Vector3(46, 2, 59),
-new Vector3(46, 2, 60),
-new Vector3(47, 2, 58),
-new Vector3(47, 2, 59),
-new Vector3(47, 2, 60),
-new Vector3(32, 1.5f, 73),
-new Vector3(32, 1.5f, 74),
-new Vector3(32, 1.5f, 75),
-new Vector3(33, 1.5f, 73),
-new Vector3(33, 1.5f, 74),
-new Vector3(33, 1.5f, 75),
-new Vector3(34, 1.5f, 73),
-new Vector3(34, 1.5f, 74),
-new Vector3(34, 1.5f, 75),
-new Vector3(23, 1.5f, 65),
-new Vector3(23, 1.5f, 66),
-new Vector3(23, 1.5f, 67),
-new Vector3(24, 1.5f, 65),
-new Vector3(24, 1.5f, 66),
-new Vector3(24, 1.5f, 67),
-new Vector3(25, 1.5f, 65),
-new Vector3(25, 1.5f, 66),
-new Vector3(25, 1.5f, 67),
-new Vector3(33, 1.5f, 49),
-new Vector3(33, 1.5f, 50),
-new Vector3(33, 1.5f, 51),
-new Vector3(34, 1.5f, 49),
-new Vector3(34, 1.5f, 50),
-new Vector3(34, 1.5f, 51),
-new Vector3(35, 1.5f, 49),
-new Vector3(35, 1.5f, 50),
-new Vector3(35, 1.5f, 51),
-new Vector3(32, 1.5f, 73),
-new Vector3(32, 1.5f, 74),
-new Vector3(32, 1.5f, 75),
-new Vector3(33, 1.5f, 73),
-new Vector3(33, 1.5f, 74),
-new Vector3(33, 1.5f, 75),
-new Vector3(34, 1.5f, 73),
-new Vector3(34, 1.5f, 74),
-new Vector3(34, 1.5f, 75),
-new Vector3(47, 1, 73),
-new Vector3(47, 1, 74),
-new Vector3(47, 1, 75),
-new Vector3(47, 1, 76),
-new Vector3(47, 1, 77),
-new Vector3(48, 1, 73),
-new Vector3(48, 1, 74),
-new Vector3(48, 1, 75),
-new Vector3(48, 1, 76),
-new Vector3(48, 1, 77),
-new Vector3(49, 1, 73),
-new Vector3(49, 1, 74),
-new Vector3(49, 1, 75),
-new Vector3(49, 1, 76),
-new Vector3(49, 1, 77),
-new Vector3(50, 1, 73),
-new Vector3(50, 1, 74),
-new Vector3(50, 1, 75),
-new Vector3(50, 1, 76),
-new Vector3(50, 1, 77),
-new Vector3(51, 1, 73),
-new Vector3(51, 1, 74),
-new Vector3(51, 1, 75),
-new Vector3(51, 1, 76),
-new Vector3(51, 1, 77),
-new Vector3(20, 1, 62),
-new Vector3(20, 1, 63),
-new Vector3(20, 1, 64),
-new Vector3(20, 1, 65),
-new Vector3(20, 1, 66),
-new Vector3(21, 1, 62),
-new Vector3(21, 1, 63),
-new Vector3(21, 1, 64),
-new Vector3(21, 1, 65),
-new Vector3(21, 1, 66),
-new Vector3(22, 1, 62),
-new Vector3(22, 1, 63),
-new Vector3(22, 1, 64),
-new Vector3(22, 1, 65),
-new Vector3(22, 1, 66),
-new Vector3(23, 1, 62),
-new Vector3(23, 1, 63),
-new Vector3(23, 1, 64),
-new Vector3(23, 1, 65),
-new Vector3(23, 1, 66),
-new Vector3(24, 1, 62),
-new Vector3(24, 1, 63),
-new Vector3(24, 1, 64),
-new Vector3(24, 1, 65),
-new Vector3(24, 1, 66),
-new Vector3(47, 1, 73),
-new Vector3(47, 1, 74),
-new Vector3(47, 1, 75),
-new Vector3(47, 1, 76),
-new Vector3(47, 1, 77),
-new Vector3(48, 1, 73),
-new Vector3(48, 1, 74),
-new Vector3(48, 1, 75),
-new Vector3(48, 1, 76),
-new Vector3(48, 1, 77),
-new Vector3(49, 1, 73),
-new Vector3(49, 1, 74),
-new Vector3(49, 1, 75),
-new Vector3(49, 1, 76),
-new Vector3(49, 1, 77),
-new Vector3(50, 1, 73),
-new Vector3(50, 1, 74),
-new Vector3(50, 1, 75),
-new Vector3(50, 1, 76),
-new Vector3(50, 1, 77),
-new Vector3(51, 1, 73),
-new Vector3(51, 1, 74),
-new Vector3(51, 1, 75),
-new Vector3(51, 1, 76),
-new Vector3(51, 1, 77),
-new Vector3(48, 1, 62),
-new Vector3(48, 1, 63),
-new Vector3(48, 1, 64),
-new Vector3(48, 1, 65),
-new Vector3(48, 1, 66),
-new Vector3(49, 1, 62),
-new Vector3(49, 1, 63),
-new Vector3(49, 1, 64),
-new Vector3(49, 1, 65),
-new Vector3(49, 1, 66),
-new Vector3(50, 1, 62),
-new Vector3(50, 1, 63),
-new Vector3(50, 1, 64),
-new Vector3(50, 1, 65),
-new Vector3(50, 1, 66),
-new Vector3(51, 1, 62),
-new Vector3(51, 1, 63),
-new Vector3(51, 1, 64),
-new Vector3(51, 1, 65),
-new Vector3(51, 1, 66),
-new Vector3(52, 1, 62),
-new Vector3(52, 1, 63),
-new Vector3(52, 1, 64),
-new Vector3(52, 1, 65),
-new Vector3(52, 1, 66),
-new Vector3(21, 1, 47),
-new Vector3(21, 1, 48),
-new Vector3(21, 1, 49),
-new Vector3(21, 1, 50),
-new Vector3(21, 1, 51),
-new Vector3(22, 1, 47),
-new Vector3(22, 1, 48),
-new Vector3(22, 1, 49),
-new Vector3(22, 1, 50),
-new Vector3(22, 1, 51),
-new Vector3(23, 1, 47),
-new Vector3(23, 1, 48),
-new Vector3(23, 1, 49),
-new Vector3(23, 1, 50),
-new Vector3(23, 1, 51),
-new Vector3(24, 1, 47),
-new Vector3(24, 1, 48),
-new Vector3(24, 1, 49),
-new Vector3(24, 1, 50),
-new Vector3(24, 1, 51),
-new Vector3(25, 1, 47),
-new Vector3(25, 1, 48),
-new Vector3(25, 1, 49),
-new Vector3(25, 1, 50),
-new Vector3(25, 1, 51),
-new Vector3(48, 1, 64),
-new Vector3(48, 1, 65),
-new Vector3(48, 1, 66),
-new Vector3(48, 1, 67),
-new Vector3(48, 1, 68),
-new Vector3(49, 1, 64),
-new Vector3(49, 1, 65),
-new Vector3(49, 1, 66),
-new Vector3(49, 1, 67),
-new Vector3(49, 1, 68),
-new Vector3(50, 1, 64),
-new Vector3(50, 1, 65),
-new Vector3(50, 1, 66),
-new Vector3(50, 1, 67),
-new Vector3(50, 1, 68),
-new Vector3(51, 1, 64),
-new Vector3(51, 1, 65),
-new Vector3(51, 1, 66),
-new Vector3(51, 1, 67),
-new Vector3(51, 1, 68),
-new Vector3(52, 1, 64),
-new Vector3(52, 1, 65),
-new Vector3(52, 1, 66),
-new Vector3(52, 1, 67),
-new Vector3(52, 1, 68),
-new Vector3(29, 1, 74),
-new Vector3(29, 1, 75),
-new Vector3(29, 1, 76),
-new Vector3(29, 1, 77),
-new Vector3(29, 1, 78),
-new Vector3(30, 1, 74),
-new Vector3(30, 1, 75),
-new Vector3(30, 1, 76),
-new Vector3(30, 1, 77),
-new Vector3(30, 1, 78),
-new Vector3(31, 1, 74),
-new Vector3(31, 1, 75),
-new Vector3(31, 1, 76),
-new Vector3(31, 1, 77),
-new Vector3(31, 1, 78),
-new Vector3(32, 1, 74),
-new Vector3(32, 1, 75),
-new Vector3(32, 1, 76),
-new Vector3(32, 1, 77),
-new Vector3(32, 1, 78),
-new Vector3(33, 1, 74),
-new Vector3(33, 1, 75),
-new Vector3(33, 1, 76),
-new Vector3(33, 1, 77),
-new Vector3(33, 1, 78),
-new Vector3(8, 6, 30),
-new Vector3(4, 5.5f, 29),
-new Vector3(4, 5.5f, 29),
-new Vector3(12, 5.5f, 30),
-new Vector3(5, 5.5f, 33),
-new Vector3(4, 5.5f, 30),
-new Vector3(3, 5, 35),
-new Vector3(9, 5, 36),
-new Vector3(13, 5, 35),
-new Vector3(2, 5, 31),
-new Vector3(16, 4.5f, 31),
-new Vector3(15, 4.5f, 37),
-new Vector3(18, 4, 32),
-new Vector3(8, 3.5f, 42),
-new Vector3(19, 3.5f, 41),
-new Vector3(9, 3, 16),
-new Vector3(2, 3, 44),
-new Vector3(21, 3, 17),
-new Vector3(6, 3, 44),
-new Vector3(22, 3, 33),
-new Vector3(22, 3, 25),
-new Vector3(2, 3, 16),
-new Vector3(22, 3, 25),
-new Vector3(8, 3, 44),
-new Vector3(24, 2.5f, 28),
-new Vector3(10, 2.5f, 46),
-new Vector3(23, 2.5f, 45),
-new Vector3(12, 2.5f, 46),
-new Vector3(24, 2.5f, 30),
-new Vector3(5, 2.5f, 46),
-new Vector3(27, 1.5f, 25),
-new Vector3(27, 1.5f, 26),
-new Vector3(27, 1.5f, 27),
-new Vector3(28, 1.5f, 25),
-new Vector3(28, 1.5f, 26),
-new Vector3(28, 1.5f, 27),
-new Vector3(29, 1.5f, 25),
-new Vector3(29, 1.5f, 26),
-new Vector3(29, 1.5f, 27),
-new Vector3(27, 1.5f, 32),
-new Vector3(27, 1.5f, 33),
-new Vector3(27, 1.5f, 34),
-new Vector3(28, 1.5f, 32),
-new Vector3(28, 1.5f, 33),
-new Vector3(28, 1.5f, 34),
-new Vector3(29, 1.5f, 32),
-new Vector3(29, 1.5f, 33),
-new Vector3(29, 1.5f, 34),
-new Vector3(10, 1.5f, 49),
-new Vector3(10, 1.5f, 50),
-new Vector3(10, 1.5f, 51),
-new Vector3(11, 1.5f, 49),
-new Vector3(11, 1.5f, 50),
-new Vector3(11, 1.5f, 51),
-new Vector3(12, 1.5f, 49),
-new Vector3(12, 1.5f, 50),
-new Vector3(12, 1.5f, 51),
-new Vector3(27, 1, 49),
-new Vector3(27, 1, 50),
-new Vector3(27, 1, 51),
-new Vector3(27, 1, 52),
-new Vector3(27, 1, 53),
-new Vector3(28, 1, 49),
-new Vector3(28, 1, 50),
-new Vector3(28, 1, 51),
-new Vector3(28, 1, 52),
-new Vector3(28, 1, 53),
-new Vector3(29, 1, 49),
-new Vector3(29, 1, 50),
-new Vector3(29, 1, 51),
-new Vector3(29, 1, 52),
-new Vector3(29, 1, 53),
-new Vector3(30, 1, 49),
-new Vector3(30, 1, 50),
-new Vector3(30, 1, 51),
-new Vector3(30, 1, 52),
-new Vector3(30, 1, 53),
-new Vector3(31, 1, 49),
-new Vector3(31, 1, 50),
-new Vector3(31, 1, 51),
-new Vector3(31, 1, 52),
-new Vector3(31, 1, 53),
-new Vector3(28, 1, 20),
-new Vector3(28, 1, 21),
-new Vector3(28, 1, 22),
-new Vector3(28, 1, 23),
-new Vector3(28, 1, 24),
-new Vector3(29, 1, 20),
-new Vector3(29, 1, 21),
-new Vector3(29, 1, 22),
-new Vector3(29, 1, 23),
-new Vector3(29, 1, 24),
-new Vector3(30, 1, 20),
-new Vector3(30, 1, 21),
-new Vector3(30, 1, 22),
-new Vector3(30, 1, 23),
-new Vector3(30, 1, 24),
-new Vector3(31, 1, 20),
-new Vector3(31, 1, 21),
-new Vector3(31, 1, 22),
-new Vector3(31, 1, 23),
-new Vector3(31, 1, 24),
-new Vector3(32, 1, 20),
-new Vector3(32, 1, 21),
-new Vector3(32, 1, 22),
-new Vector3(32, 1, 23),
-new Vector3(32, 1, 24),
-new Vector3(2, 1, 6),
-new Vector3(2, 1, 7),
-new Vector3(2, 1, 8),
-new Vector3(2, 1, 9),
-new Vector3(2, 1, 10),
-new Vector3(3, 1, 6),
-new Vector3(3, 1, 7),
-new Vector3(3, 1, 8),
-new Vector3(3, 1, 9),
-new Vector3(3, 1, 10),
+            listadoCasillasInicial = new List<Vector3> {new Vector3(28, 6, 8),
+new Vector3(31, 5.5f, 5),
+new Vector3(34, 5, 7),
+new Vector3(23, 5, 13),
+new Vector3(34, 5, 7),
+new Vector3(33, 5, 3),
+new Vector3(28, 4.5f, 16),
+new Vector3(21, 4.5f, 15),
+new Vector3(18, 4, 4),
+new Vector3(19, 4, 17),
+new Vector3(37, 4, 17),
+new Vector3(38, 4, 9),
+new Vector3(40, 3.5f, 5),
+new Vector3(24, 3.5f, 20),
+new Vector3(16, 3.5f, 9),
+new Vector3(17, 3.5f, 19),
+new Vector3(15, 3, 21),
+new Vector3(42, 3, 2),
+new Vector3(29, 3, 22),
+new Vector3(41, 3, 21),
+new Vector3(25, 3, 22),
+new Vector3(31, 3, 22),
+new Vector3(31, 3, 22),
+new Vector3(44, 2.5f, 4),
+new Vector3(9, 2, 3),
+new Vector3(9, 2, 4),
+new Vector3(9, 2, 5),
+new Vector3(10, 2, 3),
+new Vector3(10, 2, 4),
+new Vector3(10, 2, 5),
+new Vector3(11, 2, 3),
+new Vector3(11, 2, 4),
+new Vector3(11, 2, 5),
+new Vector3(24, 2, 25),
+new Vector3(24, 2, 26),
+new Vector3(24, 2, 27),
+new Vector3(25, 2, 25),
+new Vector3(25, 2, 26),
+new Vector3(25, 2, 27),
+new Vector3(26, 2, 25),
+new Vector3(26, 2, 26),
+new Vector3(26, 2, 27),
+new Vector3(44, 2, 24),
+new Vector3(44, 2, 25),
+new Vector3(44, 2, 26),
+new Vector3(45, 2, 24),
+new Vector3(45, 2, 25),
+new Vector3(45, 2, 26),
+new Vector3(46, 2, 24),
+new Vector3(46, 2, 25),
+new Vector3(46, 2, 26),
+new Vector3(44, 2, 24),
+new Vector3(44, 2, 25),
+new Vector3(44, 2, 26),
+new Vector3(45, 2, 24),
+new Vector3(45, 2, 25),
+new Vector3(45, 2, 26),
+new Vector3(46, 2, 24),
+new Vector3(46, 2, 25),
+new Vector3(46, 2, 26),
+new Vector3(44, 2, 24),
+new Vector3(44, 2, 25),
+new Vector3(44, 2, 26),
+new Vector3(45, 2, 24),
+new Vector3(45, 2, 25),
+new Vector3(45, 2, 26),
+new Vector3(46, 2, 24),
+new Vector3(46, 2, 25),
+new Vector3(46, 2, 26),
+new Vector3(7, 1.5f, 2),
+new Vector3(8, 1.5f, 2),
+new Vector3(9, 1.5f, 2),
+new Vector3(24, 1.5f, 27),
+new Vector3(24, 1.5f, 28),
+new Vector3(24, 1.5f, 29),
+new Vector3(25, 1.5f, 27),
+new Vector3(25, 1.5f, 28),
+new Vector3(25, 1.5f, 29),
+new Vector3(26, 1.5f, 27),
+new Vector3(26, 1.5f, 28),
+new Vector3(26, 1.5f, 29),
+new Vector3(7, 1.5f, 2),
+new Vector3(7, 1.5f, 3),
+new Vector3(8, 1.5f, 2),
+new Vector3(8, 1.5f, 3),
+new Vector3(9, 1.5f, 2),
+new Vector3(9, 1.5f, 3),
+new Vector3(8, 1.5f, 26),
+new Vector3(8, 1.5f, 27),
+new Vector3(8, 1.5f, 28),
+new Vector3(9, 1.5f, 26),
+new Vector3(9, 1.5f, 27),
+new Vector3(9, 1.5f, 28),
+new Vector3(10, 1.5f, 26),
+new Vector3(10, 1.5f, 27),
+new Vector3(10, 1.5f, 28),
+new Vector3(47, 1.5f, 13),
+new Vector3(47, 1.5f, 14),
+new Vector3(47, 1.5f, 15),
+new Vector3(48, 1.5f, 13),
+new Vector3(48, 1.5f, 14),
+new Vector3(48, 1.5f, 15),
+new Vector3(49, 1.5f, 13),
+new Vector3(49, 1.5f, 14),
+new Vector3(49, 1.5f, 15),
+new Vector3(48, 1, 5),
+new Vector3(48, 1, 6),
+new Vector3(48, 1, 7),
+new Vector3(48, 1, 8),
+new Vector3(48, 1, 9),
+new Vector3(49, 1, 5),
+new Vector3(49, 1, 6),
+new Vector3(49, 1, 7),
+new Vector3(49, 1, 8),
+new Vector3(49, 1, 9),
+new Vector3(50, 1, 5),
+new Vector3(50, 1, 6),
+new Vector3(50, 1, 7),
+new Vector3(50, 1, 8),
+new Vector3(50, 1, 9),
+new Vector3(51, 1, 5),
+new Vector3(51, 1, 6),
+new Vector3(51, 1, 7),
+new Vector3(51, 1, 8),
+new Vector3(51, 1, 9),
+new Vector3(52, 1, 5),
+new Vector3(52, 1, 6),
+new Vector3(52, 1, 7),
+new Vector3(52, 1, 8),
+new Vector3(52, 1, 9),
+new Vector3(4, 1, 2),
+new Vector3(4, 1, 3),
+new Vector3(4, 1, 4),
+new Vector3(4, 1, 5),
 new Vector3(4, 1, 6),
-new Vector3(4, 1, 7),
-new Vector3(4, 1, 8),
-new Vector3(4, 1, 9),
-new Vector3(4, 1, 10),
+new Vector3(5, 1, 2),
+new Vector3(5, 1, 3),
+new Vector3(5, 1, 4),
+new Vector3(5, 1, 5),
 new Vector3(5, 1, 6),
-new Vector3(5, 1, 7),
-new Vector3(5, 1, 8),
-new Vector3(5, 1, 9),
-new Vector3(5, 1, 10),
-new Vector3(12, 1, 6),
-new Vector3(12, 1, 7),
-new Vector3(12, 1, 8),
-new Vector3(12, 1, 9),
-new Vector3(12, 1, 10),
-new Vector3(13, 1, 6),
-new Vector3(13, 1, 7),
-new Vector3(13, 1, 8),
-new Vector3(13, 1, 9),
-new Vector3(13, 1, 10),
-new Vector3(14, 1, 6),
-new Vector3(14, 1, 7),
-new Vector3(14, 1, 8),
-new Vector3(14, 1, 9),
-new Vector3(14, 1, 10),
-new Vector3(15, 1, 6),
-new Vector3(15, 1, 7),
-new Vector3(15, 1, 8),
-new Vector3(15, 1, 9),
-new Vector3(15, 1, 10),
-new Vector3(16, 1, 6),
-new Vector3(16, 1, 7),
-new Vector3(16, 1, 8),
-new Vector3(16, 1, 9),
-new Vector3(16, 1, 10) };
+new Vector3(6, 1, 2),
+new Vector3(6, 1, 3),
+new Vector3(6, 1, 4),
+new Vector3(6, 1, 5),
+new Vector3(6, 1, 6),
+new Vector3(7, 1, 2),
+new Vector3(7, 1, 3),
+new Vector3(7, 1, 4),
+new Vector3(7, 1, 5),
+new Vector3(7, 1, 6),
+new Vector3(8, 1, 2),
+new Vector3(8, 1, 3),
+new Vector3(8, 1, 4),
+new Vector3(8, 1, 5),
+new Vector3(8, 1, 6),
+new Vector3(28, 1, 28),
+new Vector3(28, 1, 29),
+new Vector3(28, 1, 30),
+new Vector3(28, 1, 31),
+new Vector3(28, 1, 32),
+new Vector3(29, 1, 28),
+new Vector3(29, 1, 29),
+new Vector3(29, 1, 30),
+new Vector3(29, 1, 31),
+new Vector3(29, 1, 32),
+new Vector3(30, 1, 28),
+new Vector3(30, 1, 29),
+new Vector3(30, 1, 30),
+new Vector3(30, 1, 31),
+new Vector3(30, 1, 32),
+new Vector3(31, 1, 28),
+new Vector3(31, 1, 29),
+new Vector3(31, 1, 30),
+new Vector3(31, 1, 31),
+new Vector3(31, 1, 32),
+new Vector3(32, 1, 28),
+new Vector3(32, 1, 29),
+new Vector3(32, 1, 30),
+new Vector3(32, 1, 31),
+new Vector3(32, 1, 32),
+new Vector3(48, 1, 2),
+new Vector3(48, 1, 3),
+new Vector3(48, 1, 4),
+new Vector3(48, 1, 5),
+new Vector3(49, 1, 2),
+new Vector3(49, 1, 3),
+new Vector3(49, 1, 4),
+new Vector3(49, 1, 5),
+new Vector3(50, 1, 2),
+new Vector3(50, 1, 3),
+new Vector3(50, 1, 4),
+new Vector3(50, 1, 5),
+new Vector3(51, 1, 2),
+new Vector3(51, 1, 3),
+new Vector3(51, 1, 4),
+new Vector3(51, 1, 5),
+new Vector3(52, 1, 2),
+new Vector3(52, 1, 3),
+new Vector3(52, 1, 4),
+new Vector3(52, 1, 5),
+new Vector3(32, 4, 50),
+new Vector3(36, 3.5f, 50),
+new Vector3(35, 3.5f, 47),
+new Vector3(31, 3.5f, 54),
+new Vector3(31, 3.5f, 54),
+new Vector3(38, 3, 50),
+new Vector3(37, 3, 45),
+new Vector3(31, 2.5f, 58),
+new Vector3(29, 2.5f, 42),
+new Vector3(25, 2.5f, 57),
+new Vector3(25, 2.5f, 43),
+new Vector3(33, 2.5f, 58),
+new Vector3(40, 2, 40),
+new Vector3(40, 2, 41),
+new Vector3(40, 2, 42),
+new Vector3(41, 2, 40),
+new Vector3(41, 2, 41),
+new Vector3(41, 2, 42),
+new Vector3(42, 2, 40),
+new Vector3(42, 2, 41),
+new Vector3(42, 2, 42),
+new Vector3(41, 2, 45),
+new Vector3(41, 2, 46),
+new Vector3(41, 2, 47),
+new Vector3(42, 2, 45),
+new Vector3(42, 2, 46),
+new Vector3(42, 2, 47),
+new Vector3(43, 2, 45),
+new Vector3(43, 2, 46),
+new Vector3(43, 2, 47),
+new Vector3(40, 2, 58),
+new Vector3(40, 2, 59),
+new Vector3(40, 2, 60),
+new Vector3(41, 2, 58),
+new Vector3(41, 2, 59),
+new Vector3(41, 2, 60),
+new Vector3(42, 2, 58),
+new Vector3(42, 2, 59),
+new Vector3(42, 2, 60),
+new Vector3(32, 2, 59),
+new Vector3(32, 2, 60),
+new Vector3(32, 2, 61),
+new Vector3(33, 2, 59),
+new Vector3(33, 2, 60),
+new Vector3(33, 2, 61),
+new Vector3(34, 2, 59),
+new Vector3(34, 2, 60),
+new Vector3(34, 2, 61),
+new Vector3(21, 2, 48),
+new Vector3(21, 2, 49),
+new Vector3(21, 2, 50),
+new Vector3(22, 2, 48),
+new Vector3(22, 2, 49),
+new Vector3(22, 2, 50),
+new Vector3(23, 2, 48),
+new Vector3(23, 2, 49),
+new Vector3(23, 2, 50),
+new Vector3(42, 1.5f, 60),
+new Vector3(42, 1.5f, 61),
+new Vector3(42, 1.5f, 62),
+new Vector3(43, 1.5f, 60),
+new Vector3(43, 1.5f, 61),
+new Vector3(43, 1.5f, 62),
+new Vector3(44, 1.5f, 60),
+new Vector3(44, 1.5f, 61),
+new Vector3(44, 1.5f, 62),
+new Vector3(20, 1.5f, 38),
+new Vector3(20, 1.5f, 39),
+new Vector3(20, 1.5f, 40),
+new Vector3(21, 1.5f, 38),
+new Vector3(21, 1.5f, 39),
+new Vector3(21, 1.5f, 40),
+new Vector3(22, 1.5f, 38),
+new Vector3(22, 1.5f, 39),
+new Vector3(22, 1.5f, 40),
+new Vector3(42, 1.5f, 60),
+new Vector3(42, 1.5f, 61),
+new Vector3(42, 1.5f, 62),
+new Vector3(43, 1.5f, 60),
+new Vector3(43, 1.5f, 61),
+new Vector3(43, 1.5f, 62),
+new Vector3(44, 1.5f, 60),
+new Vector3(44, 1.5f, 61),
+new Vector3(44, 1.5f, 62),
+new Vector3(42, 1.5f, 38),
+new Vector3(42, 1.5f, 39),
+new Vector3(42, 1.5f, 40),
+new Vector3(43, 1.5f, 38),
+new Vector3(43, 1.5f, 39),
+new Vector3(43, 1.5f, 40),
+new Vector3(44, 1.5f, 38),
+new Vector3(44, 1.5f, 39),
+new Vector3(44, 1.5f, 40),
+new Vector3(20, 1.5f, 38),
+new Vector3(20, 1.5f, 39),
+new Vector3(20, 1.5f, 40),
+new Vector3(21, 1.5f, 38),
+new Vector3(21, 1.5f, 39),
+new Vector3(21, 1.5f, 40),
+new Vector3(22, 1.5f, 38),
+new Vector3(22, 1.5f, 39),
+new Vector3(22, 1.5f, 40),
+new Vector3(35, 1.5f, 37),
+new Vector3(35, 1.5f, 38),
+new Vector3(35, 1.5f, 39),
+new Vector3(36, 1.5f, 37),
+new Vector3(36, 1.5f, 38),
+new Vector3(36, 1.5f, 39),
+new Vector3(37, 1.5f, 37),
+new Vector3(37, 1.5f, 38),
+new Vector3(37, 1.5f, 39),
+new Vector3(44, 1, 50),
+new Vector3(44, 1, 51),
+new Vector3(44, 1, 52),
+new Vector3(44, 1, 53),
+new Vector3(44, 1, 54),
+new Vector3(45, 1, 50),
+new Vector3(45, 1, 51),
+new Vector3(45, 1, 52),
+new Vector3(45, 1, 53),
+new Vector3(45, 1, 54),
+new Vector3(46, 1, 50),
+new Vector3(46, 1, 51),
+new Vector3(46, 1, 52),
+new Vector3(46, 1, 53),
+new Vector3(46, 1, 54),
+new Vector3(47, 1, 50),
+new Vector3(47, 1, 51),
+new Vector3(47, 1, 52),
+new Vector3(47, 1, 53),
+new Vector3(47, 1, 54),
+new Vector3(48, 1, 50),
+new Vector3(48, 1, 51),
+new Vector3(48, 1, 52),
+new Vector3(48, 1, 53),
+new Vector3(48, 1, 54),
+new Vector3(44, 1, 49),
+new Vector3(44, 1, 50),
+new Vector3(44, 1, 51),
+new Vector3(44, 1, 52),
+new Vector3(44, 1, 53),
+new Vector3(45, 1, 49),
+new Vector3(45, 1, 50),
+new Vector3(45, 1, 51),
+new Vector3(45, 1, 52),
+new Vector3(45, 1, 53),
+new Vector3(46, 1, 49),
+new Vector3(46, 1, 50),
+new Vector3(46, 1, 51),
+new Vector3(46, 1, 52),
+new Vector3(46, 1, 53),
+new Vector3(47, 1, 49),
+new Vector3(47, 1, 50),
+new Vector3(47, 1, 51),
+new Vector3(47, 1, 52),
+new Vector3(47, 1, 53),
+new Vector3(48, 1, 49),
+new Vector3(48, 1, 50),
+new Vector3(48, 1, 51),
+new Vector3(48, 1, 52),
+new Vector3(48, 1, 53),
+new Vector3(17, 1, 35),
+new Vector3(17, 1, 36),
+new Vector3(17, 1, 37),
+new Vector3(17, 1, 38),
+new Vector3(17, 1, 39),
+new Vector3(18, 1, 35),
+new Vector3(18, 1, 36),
+new Vector3(18, 1, 37),
+new Vector3(18, 1, 38),
+new Vector3(18, 1, 39),
+new Vector3(19, 1, 35),
+new Vector3(19, 1, 36),
+new Vector3(19, 1, 37),
+new Vector3(19, 1, 38),
+new Vector3(19, 1, 39),
+new Vector3(20, 1, 35),
+new Vector3(20, 1, 36),
+new Vector3(20, 1, 37),
+new Vector3(20, 1, 38),
+new Vector3(20, 1, 39),
+new Vector3(21, 1, 35),
+new Vector3(21, 1, 36),
+new Vector3(21, 1, 37),
+new Vector3(21, 1, 38),
+new Vector3(21, 1, 39),
+new Vector3(43, 1, 35),
+new Vector3(43, 1, 36),
+new Vector3(43, 1, 37),
+new Vector3(43, 1, 38),
+new Vector3(43, 1, 39),
+new Vector3(44, 1, 35),
+new Vector3(44, 1, 36),
+new Vector3(44, 1, 37),
+new Vector3(44, 1, 38),
+new Vector3(44, 1, 39),
+new Vector3(45, 1, 35),
+new Vector3(45, 1, 36),
+new Vector3(45, 1, 37),
+new Vector3(45, 1, 38),
+new Vector3(45, 1, 39),
+new Vector3(46, 1, 35),
+new Vector3(46, 1, 36),
+new Vector3(46, 1, 37),
+new Vector3(46, 1, 38),
+new Vector3(46, 1, 39),
+new Vector3(47, 1, 35),
+new Vector3(47, 1, 36),
+new Vector3(47, 1, 37),
+new Vector3(47, 1, 38),
+new Vector3(47, 1, 39) };
         }
   
         int k = 0;
@@ -585,11 +617,6 @@ new Vector3(16, 1, 10) };
         {
             if (alturaMaxima == 0.5f)
             {               
-                if (ponerLlano == true)
-                {
-                    PonerLlano2(alturaMaxima);
-                }
-
                 break;
             }
 
@@ -611,6 +638,11 @@ new Vector3(16, 1, 10) };
             }
 
             k += 1;
+        }
+
+        if (ponerLlano == true)
+        {
+            PonerLlano2(alturaMaxima);
         }
     }
 
@@ -1235,79 +1267,11 @@ new Vector3(16, 1, 10) };
 
         Terreno plano = new Terreno(30, 0, new Vector3(x + 1, y + 0.5f, z - 1));
 
-        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z - 1], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
         {
             PonerTerreno(plano);
         }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x, z - 2], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z - 1], y, 180) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno1(terrenos[x + 1, z - 2], y, 270) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z - 2], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z - 1], y, 180) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true && ComprobarTerreno1(terrenos[x + 2, z - 1], y, 180) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z - 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z - 1], y, 180) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z - 2], y, 270) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 0) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
-        {
-            PonerTerreno(plano);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z - 1], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
         {
             PonerTerreno(plano);
         }
@@ -1384,6 +1348,10 @@ new Vector3(16, 1, 10) };
         {
             PonerTerreno(esquina3rotacion180);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z - 2], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion180);
+        }
 
         //---------------------------------------
 
@@ -1430,6 +1398,85 @@ new Vector3(16, 1, 10) };
         {
             PonerTerreno(esquina3rotacion90);
         }
+
+        //---------------------------------------
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z - 1], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x, z - 2], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z - 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno1(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z - 2], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z - 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true && ComprobarTerreno1(terrenos[x + 2, z - 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z - 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z - 1], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z - 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z - 2], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }       
 
         //---------------------------------------
 
@@ -1599,6 +1646,320 @@ new Vector3(16, 1, 10) };
         //---------------------------------------
 
         Terreno plano = new Terreno(25, 0, new Vector3(x + 1, y + 0.5f, z + 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno1(terrenos[x + 2, z + 1], y, 180) == true && ComprobarTerreno1(terrenos[x + 1, z + 2], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno1(terrenos[x + 2, z + 1], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 180) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno1(terrenos[x + 1, z + 2], y, 90) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 90) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 2], y, 90) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 2], y, 90) == true && ComprobarTerreno1(terrenos[x + 2, z + 2], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno1(terrenos[x, z + 2], y, 90) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno1(terrenos[x, z + 2], y, 90) == true && ComprobarTerreno1(terrenos[x + 1, z + 2], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z + 1], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 1, z + 2], y, 90) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 2], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 1], y, 270) == true)
+        {
+            PonerTerreno(plano);
+        }
+
+        //---------------------------------------
+
+        Terreno esquina3rotacion0 = new Terreno(28, 0, new Vector3(x + 1, y, z + 1));
+
+        if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true && ComprobarVacio(terrenos[x + 1, z]) == false)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 0) == true && ComprobarVacio(terrenos[x + 1, z]) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion0);
+        }
+
+        //---------------------------------------
+
+        Terreno esquina3rotacion90 = new Terreno(28, 90, new Vector3(x + 1, y, z + 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarVacio(terrenos[x + 1, z]) == true && ComprobarVacio(terrenos[x, z + 2]) == false)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x + 2, z + 2]) == true && ComprobarVacio(terrenos[x + 2, z]) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x + 1, z]) == true && ComprobarVacio(terrenos[x + 2, z + 1]) == true && ComprobarVacio(terrenos[x, z + 1]) == false)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion90);
+        }
+
+        //---------------------------------------
+
+        Terreno esquina3rotacion270 = new Terreno(28, 270, new Vector3(x + 1, y, z + 1));
+
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarVacio(terrenos[x + 1, z + 2]) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarVacio(terrenos[x + 1, z + 2]) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno3(terrenos[x + 2, z + 2], y, 270) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(esquina3rotacion270);
+        }
+
+        //---------------------------------------
 
         if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z + 1], y, 180) == true)
         {
@@ -1888,111 +2249,39 @@ new Vector3(16, 1, 10) };
         {
             PonerTerreno(plano);
         }
-
-        //---------------------------------------
-
-        Terreno esquina3rotacion0 = new Terreno(28, 0, new Vector3(x + 1, y, z + 1));
-
-        if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 90) == true)
         {
-            PonerTerreno(esquina3rotacion0);
+            PonerTerreno(plano);
         }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
         {
-            PonerTerreno(esquina3rotacion0);
+            PonerTerreno(plano);
         }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true)
         {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true && ComprobarVacio(terrenos[x + 1, z]) == false)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z - 1], y, 0) == true && ComprobarVacio(terrenos[x + 1, z]) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion0);
+            PonerTerreno(plano);
         }
 
         //---------------------------------------
 
-        Terreno esquina3rotacion90 = new Terreno(28, 90, new Vector3(x + 1, y, z + 1));
+        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
+        {
+            PonerTerreno(rampas4rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
+        {
+            PonerTerreno(rampas4rotacion90);
+        }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
+        {
+            PonerTerreno(rampas4rotacion90);
+        }
+        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
+        {
+            PonerTerreno(rampas4rotacion90);
+        }
+
+        //---------------------------------------
 
         if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z + 2], y, 180) == true)
         {
@@ -2018,10 +2307,6 @@ new Vector3(16, 1, 10) };
         {
             PonerTerreno(esquina3rotacion90);
         }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarVacio(terrenos[x + 2, z]) == true && ComprobarVacio(terrenos[x + 1, z]) == true && ComprobarVacio(terrenos[x, z + 2]) == false)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
         else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z + 2], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion90);
@@ -2030,66 +2315,8 @@ new Vector3(16, 1, 10) };
         {
             PonerTerreno(esquina3rotacion90);
         }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x + 2, z + 2]) == true && ComprobarVacio(terrenos[x + 2, z]) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarVacio(terrenos[x + 1, z]) == true && ComprobarVacio(terrenos[x + 2, z + 1]) == true && ComprobarVacio(terrenos[x, z + 1]) == false)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 2], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x, z + 2], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x, z + 1], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x, z + 1], y, 90) == true)
-        {
-            PonerTerreno(esquina3rotacion90);
-        }
 
         //---------------------------------------
-
-        Terreno esquina3rotacion270 = new Terreno(28, 270, new Vector3(x + 1, y, z + 1));
 
         if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno1(terrenos[x + 2, z + 1], y, 180) == true)
         {
@@ -2122,89 +2349,6 @@ new Vector3(16, 1, 10) };
         else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
         {
             PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarVacio(terrenos[x + 1, z + 2]) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true && ComprobarVacio(terrenos[x + 1, z + 2]) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x + 2, z], y, 270) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno3(terrenos[x + 2, z + 2], y, 270) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true && ComprobarTerreno2(terrenos[x + 1, z], y, 270) == true)
-        {
-            PonerTerreno(esquina3rotacion270);
-        }
-
-        if (ComprobarLimiteX(x, 4) == true && ComprobarLimiteZ(z, 3) == true)
-        {
-            if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 3, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true)
-            {
-                PonerTerreno(esquina3rotacion270);
-            }
-            else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 3, z + 2], y, 180) == true && ComprobarTerreno0(terrenos[x + 1, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 3, z], y, 0) == true)
-            {
-                PonerTerreno(esquina3rotacion270);
-            }
-        }
-
-        //---------------------------------------
-
-        if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
-        {
-            PonerTerreno(rampas4rotacion90);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z + 2], y, 180) == true)
-        {
-            PonerTerreno(rampas4rotacion90);
-        }
-        else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
-        {
-            PonerTerreno(rampas4rotacion90);
-        }
-        else if (ComprobarTerreno0(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 2], y, 0) == true)
-        {
-            PonerTerreno(rampas4rotacion90);
         }
 
         //---------------------------------------
@@ -3914,6 +4058,10 @@ new Vector3(16, 1, 10) };
         {
             PonerTerreno(plano);
         }
+        else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 1, z - 1], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z + 1], y, 0) == true)
+        {
+            PonerTerreno(plano);
+        }
         else if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 2, z - 1], y, 0) == true)
         {
             PonerTerreno(plano);
@@ -4001,6 +4149,14 @@ new Vector3(16, 1, 10) };
         else if (ComprobarTerreno2(terrenos[x, z], y, 90) == true && ComprobarTerreno0(terrenos[x + 2, z], y, 0) == true)
         {
             PonerTerreno(plano);
+        }
+
+        if (ComprobarLimiteX(x, 4) == true && ComprobarLimiteZ(z, 3) == true)
+        {
+            if (ComprobarTerreno2(terrenos[x, z], y, 0) == true && ComprobarTerreno0(terrenos[x + 3, z + 1], y, 0) == true && ComprobarTerreno2(terrenos[x + 2, z - 1], y, 270) == true)
+            {
+                PonerTerreno(plano);
+            }
         }
 
         //---------------------------------------
