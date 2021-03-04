@@ -6,7 +6,7 @@ public class Portapapeles : MonoBehaviour
     [Header("Debug")]
     public bool estado;
 
-    public void LimpiarPortapapeles()
+    public void Limpiar()
     {
         if (estado == true)
         {
@@ -14,7 +14,15 @@ public class Portapapeles : MonoBehaviour
         }       
     }
 
-    public void CopiarPortapapeles(Vector3 vector)
+    public void Texto(string texto)
+    {
+        if (estado == true)
+        {
+            GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + texto + Environment.NewLine;
+        }
+    }
+
+    public void Vector3(Vector3 vector)
     {
         if (estado == true)
         {

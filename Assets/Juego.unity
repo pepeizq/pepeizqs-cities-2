@@ -934,6 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1379026154}
   - component: {fileID: 1379026155}
+  - component: {fileID: 1379026157}
   - component: {fileID: 1379026156}
   m_Layer: 0
   m_Name: Escenario
@@ -970,11 +971,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aleatorio: 1
   coloresDebug: 0
+  agua: 0
   coloresAltura: 0
   ponerLlano: 1
   arranque: {fileID: 77562019}
-  agua: {fileID: 0}
-  portapapeles: {fileID: 1379026156}
+  vectores: {fileID: 1379026157}
   casillas:
   - {fileID: -2070812219386385408, guid: 283ff9afbaaed904387711ef6e2d514b, type: 3}
   - {fileID: -6884745709601063214, guid: 3b51a469de8d024498ba8bb3e7c1e06d, type: 3}
@@ -1035,6 +1036,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   estado: 1
+--- !u!114 &1379026157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379026153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7575e78b33be0043aacbc5885426138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portapapeles: {fileID: 1379026156}
 --- !u!1 &1456528312
 GameObject:
   m_ObjectHideFlags: 0
