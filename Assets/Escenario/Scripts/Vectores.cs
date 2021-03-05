@@ -185,20 +185,9 @@ public class Vectores : MonoBehaviour
         int i = 0;
         while (i < intentosInicio)
         {
-            int posicionX = (int)Random.Range(0 + limitesMapa, tamañoEscenarioX - limitesMapa);
+            int posicionX = (int)Random.Range(0 + limitesMapa + alturaMaxima, tamañoEscenarioX - limitesMapa - alturaMaxima);
 
             bool añadir = true;
-
-            foreach (Terreno casilla in terrenos)
-            {
-                if (casilla != null)
-                {
-                    if (Enumerable.Range((int)(casilla.posicion.x - alturaMaxima - limitesMapa), (int)(casilla.posicion.x + alturaMaxima + limitesMapa)).Contains(posicionX))
-                    {
-                        añadir = false;                       
-                    }
-                }
-            }
 
             if (Limites.Comprobar(posicionX, 4, tamañoEscenarioX) == false)
             {
@@ -209,6 +198,7 @@ public class Vectores : MonoBehaviour
             {
                 if (intentosInicio >= 0)
                 {
+                    posicionX = (int)Random.Range(0 + limitesMapa + alturaMaxima, tamañoEscenarioX - limitesMapa - alturaMaxima);
                     intentosInicio -= 1;
                     i -= 1;
                 }
@@ -216,23 +206,91 @@ public class Vectores : MonoBehaviour
 
             if (añadir == true)
             {
-                listado.Add(new Vector3(posicionX, 0, limitesMapa));
-                portapapeles.Vector3(new Vector3(posicionX, 0, limitesMapa));
+                listado.Add(new Vector3(posicionX, 0.25f, limitesMapa));
+                portapapeles.Vector3(new Vector3(posicionX, 0.25f, limitesMapa));
 
-                listado.Add(new Vector3(posicionX - 1, 0, limitesMapa));
-                portapapeles.Vector3(new Vector3(posicionX - 1, 0, limitesMapa));
+                listado.Add(new Vector3(posicionX - 1, 0.25f, limitesMapa));
+                portapapeles.Vector3(new Vector3(posicionX - 1, 0.25f, limitesMapa));
 
-                listado.Add(new Vector3(posicionX + 1, 0, limitesMapa));
-                portapapeles.Vector3(new Vector3(posicionX + 1, 0, limitesMapa));
+                listado.Add(new Vector3(posicionX + 1, 0.25f, limitesMapa));
+                portapapeles.Vector3(new Vector3(posicionX + 1, 0.25f, limitesMapa));
 
-                for (int origenZ = limitesMapa; origenZ < tamañoEscenarioZ - limitesMapa; origenZ++)
+                for (int origenZ = limitesMapa; origenZ <= tamañoEscenarioZ - limitesMapa; origenZ++)
                 {
                     if (Limites.Comprobar(posicionX, 2, tamañoEscenarioX) == true && Limites.Comprobar(origenZ, 2, tamañoEscenarioZ) == true)
                     {
-                        if (terrenos[posicionX, origenZ] == null)
+                        int casillaX1 = posicionX;
+                        int casillaX2 = posicionX;
+                        int casillaX3 = posicionX;
+
+                        if (Limites.Comprobar(casillaX2 - 1, 2, tamañoEscenarioX) == true)
                         {
-                            listado.Add(new Vector3(posicionX, 0, origenZ));
-                            portapapeles.Vector3(new Vector3(posicionX, 0, origenZ));
+                            casillaX2 -= 1;
+                        }
+
+                        if (Limites.Comprobar(casillaX3 + 1, 2, tamañoEscenarioX) == true)
+                        {
+                            casillaX3 += 1;
+                        }
+
+                        int casillaZ1 = origenZ;
+                        int casillaZ2 = origenZ;
+                        int casillaZ3 = origenZ;
+
+                        if (Limites.Comprobar(casillaZ1 + (int)alturaMaxima, (int)alturaMaxima, tamañoEscenarioZ) == true)
+                        {
+                            if (terrenos[casillaX1, casillaZ1 + (int)alturaMaxima] != null || terrenos[casillaX2, casillaZ1 + (int)alturaMaxima] != null || terrenos[casillaX3, casillaZ1 + (int)alturaMaxima] != null)
+                            {
+                                origenZ -= 1;
+
+                                posicionX += 1;
+
+                                if (Limites.Comprobar(casillaZ2 - 1, 3, tamañoEscenarioZ) == true)
+                                {
+                                    casillaZ2 -= 1;
+                                }
+
+                                if (Limites.Comprobar(casillaZ3 + 1, 3, tamañoEscenarioZ) == true)
+                                {
+                                    casillaZ3 += 1;
+                                }
+                            }
+                        }
+
+                        //if (Limites.Comprobar(casillaX1 + 4, 3, tamañoEscenarioX) == true)
+                        //{
+                        //    if (Limites.Comprobar(casillaZ1 - 3, 3, tamañoEscenarioZ) == true)
+                        //    {
+                        //        casillaZ1 -= 3;
+                        //    }
+
+                        //    if (Limites.Comprobar(casillaZ2 - 4, 4, tamañoEscenarioZ) == true)
+                        //    {
+                        //        casillaZ2 -= 4;
+                        //    }
+
+                        //    if (Limites.Comprobar(casillaZ3 - 5, 5, tamañoEscenarioZ) == true)
+                        //    {
+                        //        casillaZ3 -= 5;
+                        //    }
+                        //}
+
+                        if (terrenos[casillaX1, casillaZ1] == null)
+                        {
+                            listado.Add(new Vector3(casillaX1, 0.25f, casillaZ1));
+                            portapapeles.Vector3(new Vector3(casillaX1, 0.25f, casillaZ1));
+                        }
+
+                        if (terrenos[casillaX2, casillaZ2] == null)
+                        {
+                            listado.Add(new Vector3(casillaX2, 0.25f, casillaZ2));
+                            portapapeles.Vector3(new Vector3(casillaX2, 0.25f, casillaZ2));
+                        }
+
+                        if (terrenos[casillaX3, casillaZ3] == null)
+                        {
+                            listado.Add(new Vector3(casillaX3, 0.25f, casillaZ3));
+                            portapapeles.Vector3(new Vector3(casillaX3, 0.25f, casillaZ3));
                         }
                     }
                 }
