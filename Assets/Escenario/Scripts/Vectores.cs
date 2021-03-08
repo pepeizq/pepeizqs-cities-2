@@ -181,7 +181,7 @@ public class Vectores : MonoBehaviour
         portapapeles.Texto("listadoAguaInicial = new List<Vector3> {");
 
         int intentosInicio = tamañoEscenarioX / 100 * tamañoEscenarioZ / 100;
-
+  
         int i = 0;
         while (i < intentosInicio)
         {
@@ -190,6 +190,11 @@ public class Vectores : MonoBehaviour
             bool añadir = true;
 
             if (Limites.Comprobar(posicionX, 4, tamañoEscenarioX) == false)
+            {
+                añadir = false;
+            }
+            
+            if (terrenos[posicionX, (int)alturaMaxima] != null)
             {
                 añadir = false;
             }
@@ -239,22 +244,28 @@ public class Vectores : MonoBehaviour
 
                         if (Limites.Comprobar(casillaZ1 + (int)alturaMaxima, (int)alturaMaxima, tamañoEscenarioZ) == true)
                         {
-                            if (terrenos[casillaX1, casillaZ1 + (int)alturaMaxima] != null || terrenos[casillaX2, casillaZ1 + (int)alturaMaxima] != null || terrenos[casillaX3, casillaZ1 + (int)alturaMaxima] != null)
+                            for (int margenRio = casillaX1 - limitesMapa; margenRio <= casillaX3 + limitesMapa; margenRio++)
                             {
-                                origenZ -= 1;
-
-                                posicionX += 1;
-
-                                if (Limites.Comprobar(casillaZ2 - 1, 3, tamañoEscenarioZ) == true)
+                                if (Limites.Comprobar(margenRio, limitesMapa, tamañoEscenarioX) == true)
                                 {
-                                    casillaZ2 -= 1;
-                                }
+                                    if (terrenos[margenRio, casillaZ1 + (int)alturaMaxima] != null)
+                                    {
+                                        origenZ -= 1;
 
-                                if (Limites.Comprobar(casillaZ3 + 1, 3, tamañoEscenarioZ) == true)
-                                {
-                                    casillaZ3 += 1;
+                                        posicionX += 1;
+
+                                        if (Limites.Comprobar(casillaZ2 - 1, 3, tamañoEscenarioZ) == true)
+                                        {
+                                            casillaZ2 -= 1;
+                                        }
+
+                                        if (Limites.Comprobar(casillaZ3 + 1, 3, tamañoEscenarioZ) == true)
+                                        {
+                                            casillaZ3 += 1;
+                                        }
+                                    }
                                 }
-                            }
+                            }                           
                         }
 
                         //if (Limites.Comprobar(casillaX1 + 4, 3, tamañoEscenarioX) == true)
