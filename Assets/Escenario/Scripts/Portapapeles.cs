@@ -29,6 +29,7 @@ public class Portapapeles : MonoBehaviour
             string y = vector.y.ToString("0.00");
             y = y.Replace(",00", null);
             y = y.Replace(",50", ".5f");
+            y = y.Replace(",25", ".25f");
 
             GUIUtility.systemCopyBuffer = GUIUtility.systemCopyBuffer + "new Vector3(" + vector.x.ToString() + ", " + y + ", " + vector.z.ToString() + ")," + Environment.NewLine;
         }
