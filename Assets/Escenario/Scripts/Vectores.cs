@@ -237,7 +237,6 @@ public class Vectores : MonoBehaviour
 
                 int contadorMoverXIzquierda = 0;
                 int contadorMoverXDerecha = 0;
-                bool parar = false;
 
                 for (int origenZ = limitesMapa; origenZ <= tamañoEscenarioZ - limitesMapa; origenZ++)
                 {
@@ -279,21 +278,18 @@ public class Vectores : MonoBehaviour
                                                 {
                                                     if (terrenos[casillaX1 - ((int)alturaMaxima * 2), margenRio2] != null)
                                                     {
-                                                        parar = true;
+                                                        i -= 1;
+                                                        break;
                                                     }
                                                 }
 
-                                                if (parar == false)
+                                                if (Limites.Comprobar(casillaX1 + ((int)alturaMaxima * 2), limitesMapa * 2, tamañoEscenarioX) == true && Limites.Comprobar(margenRio2, limitesMapa * 2, tamañoEscenarioZ) == true)
                                                 {
-                                                    if (Limites.Comprobar(casillaX1 + ((int)alturaMaxima * 2), limitesMapa * 2, tamañoEscenarioX) == true && Limites.Comprobar(margenRio2, limitesMapa * 2, tamañoEscenarioZ) == true)
+                                                    if (terrenos[casillaX1 + ((int)alturaMaxima * 2), margenRio2] != null)
                                                     {
-                                                        if (terrenos[casillaX1 + ((int)alturaMaxima * 2), margenRio2] != null)
-                                                        {
-                                                            contadorMoverXIzquierda += 1;
-                                                            break;
-                                                        }
+                                                        contadorMoverXIzquierda += 1;
                                                     }
-                                                }                                               
+                                                }
                                             }
 
                                             moverXDerecha = true;
@@ -302,63 +298,56 @@ public class Vectores : MonoBehaviour
                                 }
                             }
 
-                            if (parar == false)
+                            if (contadorMoverXIzquierda == 0 && moverXDerecha == false)
                             {
-                                if (contadorMoverXIzquierda == 0 && moverXDerecha == false)
+                                foreach (int curva in curvas)
                                 {
-                                    foreach (int curva in curvas)
+                                    if (casillaZ1 == curva)
                                     {
-                                        if (casillaZ1 == curva)
-                                        {
-                                            contadorMoverXDerecha += 1;
-                                            moverXDerecha = true;
-                                        }
-                                    }
-                                }
-
-                                if (contadorMoverXDerecha > limitesMapa)
-                                {
-                                    contadorMoverXDerecha = 0;
-                                    moverXDerecha = false;
-                                }
-                                
-                                bool moverZ = false;
-
-                                if (contadorMoverXIzquierda > 0 && contadorMoverXIzquierda <= alturaMaxima)
-                                {
-                                    contadorMoverXIzquierda += 1;
-                                    posicionX -= 1;
-                                    moverZ = true;
-                                }
-                                else
-                                {
-                                    contadorMoverXIzquierda = 0;
-
-                                    if (moverXDerecha == true)
-                                    {
-                                        posicionX += 1;
-                                        moverZ = true;
-                                    }
-                                }
-
-                                if (moverZ == true)
-                                {
-                                    origenZ -= 1;
-
-                                    if (Limites.Comprobar(casillaZ2 - 1, 3, tamañoEscenarioZ) == true)
-                                    {
-                                        casillaZ2 -= 1;
-                                    }
-
-                                    if (Limites.Comprobar(casillaZ3 + 1, 3, tamañoEscenarioZ) == true)
-                                    {
-                                        casillaZ3 += 1;
+                                        contadorMoverXDerecha += 1;
+                                        moverXDerecha = true;
                                     }
                                 }
                             }
+
+                            if (contadorMoverXDerecha > limitesMapa)
+                            {
+                                contadorMoverXDerecha = 0;
+                                moverXDerecha = false;
+                            }
+
+                            bool moverZ = false;
+
+                            if (contadorMoverXIzquierda > 0 && contadorMoverXIzquierda <= alturaMaxima)
+                            {
+                                contadorMoverXIzquierda += 1;
+                                posicionX -= 1;
+                                moverZ = true;
+                            }
                             else
                             {
-                                break;
+                                contadorMoverXIzquierda = 0;
+
+                                if (moverXDerecha == true)
+                                {
+                                    posicionX += 1;
+                                    moverZ = true;
+                                }
+                            }
+
+                            if (moverZ == true)
+                            {
+                                origenZ -= 1;
+
+                                if (Limites.Comprobar(casillaZ2 - 1, 3, tamañoEscenarioZ) == true)
+                                {
+                                    casillaZ2 -= 1;
+                                }
+
+                                if (Limites.Comprobar(casillaZ3 + 1, 3, tamañoEscenarioZ) == true)
+                                {
+                                    casillaZ3 += 1;
+                                }
                             }
                         }
 
