@@ -177,24 +177,30 @@ public class Vectores : MonoBehaviour
 
     public List<Vector3> GenerarAgua(Terreno[,] terrenos, int tamañoEscenarioX, int tamañoEscenarioZ, float alturaMaxima, int limitesMapa)
     {
-        List<Vector3> listado = new List<Vector3>();
         portapapeles.Texto("listadoAguaInicial = new List<Vector3> {");
 
         List<int> curvas = new List<int>();
         int cantidadCurvas = tamañoEscenarioZ / 33;
 
-        int j = 1;
-        while (j <= cantidadCurvas)
+        int h = 1;
+        while (h <= cantidadCurvas)
         {
-            curvas.Add((int)Random.Range(tamañoEscenarioZ / cantidadCurvas * (j - 1), tamañoEscenarioZ / cantidadCurvas * j));
-            j += 1;
+            curvas.Add((int)Random.Range(tamañoEscenarioZ / cantidadCurvas * (h - 1), tamañoEscenarioZ / cantidadCurvas * h));
+            h += 1;
         }
 
         int intentosInicio = tamañoEscenarioX / 100 * tamañoEscenarioZ / 100;
-  
+        int intentosMaximo = intentosInicio * 10;
+
         int i = 0;
+        int j = 0;
         while (i < intentosInicio)
         {
+            if (j > intentosMaximo)
+            {
+                break;
+            }
+
             int posicionX = (int)Random.Range(0 + limitesMapa + alturaMaxima, tamañoEscenarioX - limitesMapa - alturaMaxima);
 
             bool añadir = true;
@@ -221,11 +227,14 @@ public class Vectores : MonoBehaviour
                 {
                     posicionX = (int)Random.Range(0 + limitesMapa + alturaMaxima, tamañoEscenarioX - limitesMapa - alturaMaxima);
                     i -= 1;
+                    j += 1;
                 }
             }
 
             if (añadir == true)
             {
+                List<Vector3> listado = new List<Vector3>();
+
                 listado.Add(new Vector3(posicionX, 0.25f, limitesMapa));
                 portapapeles.Vector3(new Vector3(posicionX, 0.25f, limitesMapa));
 
@@ -240,6 +249,11 @@ public class Vectores : MonoBehaviour
 
                 for (int origenZ = limitesMapa; origenZ <= tamañoEscenarioZ - limitesMapa; origenZ++)
                 {
+                    if (listado.Count == 0)
+                    {
+                        break;
+                    }
+
                     if (Limites.Comprobar(posicionX, 2, tamañoEscenarioX) == true && Limites.Comprobar(origenZ, 2, tamañoEscenarioZ) == true)
                     {
                         int casillaX1 = posicionX;
@@ -266,6 +280,11 @@ public class Vectores : MonoBehaviour
 
                             for (int margenRio = casillaX1 - limitesMapa; margenRio <= casillaX3 + limitesMapa; margenRio++)
                             {
+                                if (listado.Count == 0)
+                                {
+                                    break;
+                                }
+
                                 if (Limites.Comprobar(margenRio, limitesMapa, tamañoEscenarioX) == true && Limites.Comprobar(casillaZ1 + ((int)alturaMaxima * 2), limitesMapa, tamañoEscenarioZ) == true)
                                 {
                                     if (terrenos[margenRio, casillaZ1 + ((int)alturaMaxima * 2)] != null)
@@ -279,6 +298,10 @@ public class Vectores : MonoBehaviour
                                                     if (terrenos[casillaX1 - ((int)alturaMaxima * 2), margenRio2] != null)
                                                     {
                                                         i -= 1;
+                                                        j += 1;
+                                                        listado.Clear();
+                                                        contadorMoverXDerecha = 0;
+                                                        contadorMoverXIzquierda = 0;
                                                         break;
                                                     }
                                                 }
@@ -304,8 +327,21 @@ public class Vectores : MonoBehaviour
                                 {
                                     if (casillaZ1 == curva)
                                     {
-                                        contadorMoverXDerecha += 1;
-                                        moverXDerecha = true;
+                                        bool moverDerecha = true;
+
+                                        if (Limites.Comprobar(casillaX1 + ((int)alturaMaxima * 2), limitesMapa * 2, tamañoEscenarioX) == true)
+                                        {
+                                            if (terrenos[casillaX1 + ((int)alturaMaxima * 2), casillaZ1] != null)
+                                            {
+                                                moverDerecha = false;
+                                            }
+                                        }
+
+                                        if (moverDerecha == true)
+                                        {
+                                            contadorMoverXDerecha += 1;
+                                            moverXDerecha = true;
+                                        }                                       
                                     }
                                 }
                             }
@@ -370,6 +406,8 @@ public class Vectores : MonoBehaviour
                         }
                     }
                 }
+
+                return listado;
             }
 
             i += 1;
@@ -377,6 +415,6 @@ public class Vectores : MonoBehaviour
 
         portapapeles.Texto("};");
 
-        return listado;
+        return null;
     }
 }
