@@ -8,6 +8,7 @@ namespace Juego
         [Header("Opciones")]
         public int tamañoEscenarioX;
         public int tamañoEscenarioZ;
+        public int estacion; //0 invierno, 1 primavera, 2 verano, 3 otoño
 
         [Header("Canvas")]
         public Canvas canvasJuego;

@@ -10,7 +10,6 @@ public class Escenario : MonoBehaviour
     public bool aleatorio;
     public bool coloresDebug;
     public bool agua;
-    public bool coloresAltura;
     public bool ponerLlano;
 
     [Header("Scripts")]
@@ -19,6 +18,10 @@ public class Escenario : MonoBehaviour
 
     [Header("Prefabs")]
     public Terreno[] casillas;
+    public Terreno[] casillasInvierno;
+    public Terreno[] casillasPrimavera;
+    public Terreno[] casillasVerano;
+    public Terreno[] casillasOtoño;
 
     [HideInInspector]
     public Terreno[,] terrenos = new Terreno[1, 1];
@@ -4934,7 +4937,26 @@ new Vector3(41, 0.25f, 97),
         {
             if (terrenos[x, z] == null)
             {
-                Terreno terreno2 = Instantiate(casillas[id], terreno.posicion, Quaternion.identity);
+                Terreno[] casillasFinal;
+
+                if (arranque.estacion == 0)
+                {
+                    casillasFinal = casillasInvierno;
+                }
+                else if (arranque.estacion == 1)
+                {
+                    casillasFinal = casillasPrimavera;
+                }
+                else if (arranque.estacion == 2)
+                {
+                    casillasFinal = casillasVerano;
+                }
+                else
+                {
+                    casillasFinal = casillasOtoño;
+                }
+
+                Terreno terreno2 = Instantiate(casillasFinal[id], terreno.posicion, Quaternion.identity);
                 terreno2.gameObject.transform.Rotate(Vector3.up, terreno.rotacion, Space.World);
                 terreno2.rotacion = terreno.rotacion;
                 terreno2.posicion = terreno.posicion;
@@ -4975,17 +4997,9 @@ new Vector3(41, 0.25f, 97),
         {
             id = id - 35;
         }
-
-        if (coloresAltura == true)
+        else if (id >= 40 && id <= 44)
         {
-            if (altura >= 1f && altura <= 5f)
-            {
-                id = id + 30;
-            }
-            else if (altura >= 5.5f)
-            {
-                id = id + 10;
-            }
+            id = id - 40;
         }
 
         return id;
