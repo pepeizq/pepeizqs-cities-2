@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  idDebug: 12
   edificable: 0
   posicion: {x: 0, y: 0, z: 0}
   rotacion: 0

@@ -3,10 +3,9 @@
 public class Terreno : MonoBehaviour
 {
     public int id;
-    public bool edificable;
-
-    [HideInInspector]
     public int idDebug;
+
+    public bool edificable;     
 
     [HideInInspector]
     public Vector3 posicion;

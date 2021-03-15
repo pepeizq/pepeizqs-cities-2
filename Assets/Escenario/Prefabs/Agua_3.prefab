@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce831bd6425b6a43b48eba6faf5e5e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 43
+  id: 8
+  idDebug: 43
   edificable: 0
-  idDebug: 0
   posicion: {x: 0, y: 0, z: 0}
   rotacion: 0

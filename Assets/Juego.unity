@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "tama\xF1oEscenarioX": 100
   "tama\xF1oEscenarioZ": 100
-  estacion: 0
+  estacion: 3
   canvasJuego: {fileID: 640026279}
   partidas: {fileID: 0}
   escenario: {fileID: 1379026155}
@@ -971,12 +971,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aleatorio: 1
-  coloresDebug: 0
+  coloresGeneracion: 0
   agua: 1
   ponerLlano: 1
   arranque: {fileID: 77562019}
   vectores: {fileID: 1379026157}
-  casillas:
+  casillasDebug:
   - {fileID: -2070812219386385408, guid: 283ff9afbaaed904387711ef6e2d514b, type: 3}
   - {fileID: -6884745709601063214, guid: 3b51a469de8d024498ba8bb3e7c1e06d, type: 3}
   - {fileID: -3634566471038390745, guid: 5bf588b8cf322b4408d86f17078a4037, type: 3}
@@ -1022,7 +1022,17 @@ MonoBehaviour:
   - {fileID: 6888966403422116618, guid: 96ad7fa57c152c14abee0bd4c7d71c8a, type: 3}
   - {fileID: 240118135816958047, guid: 43258e29fd4628944b51ec0d00c397e0, type: 3}
   - {fileID: 2586568869951220087, guid: 8ac772a7387cc0e46a349fa89f542c0a, type: 3}
-  casillasInvierno: []
+  casillasInvierno:
+  - {fileID: 756605098084180883, guid: 9631ef39afaa1884cadb6b03cd390a56, type: 3}
+  - {fileID: 821449256626828915, guid: 06e754303bcdb5d41a572d0965eb7d5c, type: 3}
+  - {fileID: 1748241377697908210, guid: 3682a022daf83f144919e666d1924433, type: 3}
+  - {fileID: 4349171244611254500, guid: 36b564949e631114f8f5838baafa9364, type: 3}
+  - {fileID: 650741069948251125, guid: 0ae0e3bc82d16b945837bd86b1a122aa, type: 3}
+  - {fileID: -7624323628801495787, guid: 29c9fcb28301ba244a86f47abf2cc532, type: 3}
+  - {fileID: 2706431781992543512, guid: 22d733a93c7830a4f8dd347b76320f1d, type: 3}
+  - {fileID: -3259225626198939119, guid: 5c30854b35517104e9344efd07286017, type: 3}
+  - {fileID: -4042941527508154347, guid: 7d3ea913db177194db3981aa5af99a89, type: 3}
+  - {fileID: -8604359674929983902, guid: 6640be7fd1023ce4298d39dd317b5a6e, type: 3}
   casillasPrimavera:
   - {fileID: -2070812219386385408, guid: 283ff9afbaaed904387711ef6e2d514b, type: 3}
   - {fileID: -6884745709601063214, guid: 3b51a469de8d024498ba8bb3e7c1e06d, type: 3}
@@ -1034,8 +1044,28 @@ MonoBehaviour:
   - {fileID: 6888966403422116618, guid: 96ad7fa57c152c14abee0bd4c7d71c8a, type: 3}
   - {fileID: 240118135816958047, guid: 43258e29fd4628944b51ec0d00c397e0, type: 3}
   - {fileID: 2586568869951220087, guid: 8ac772a7387cc0e46a349fa89f542c0a, type: 3}
-  casillasVerano: []
-  "casillasOto\xF1o": []
+  casillasVerano:
+  - {fileID: 7706324470530730891, guid: 4fd0cb9bdee3a5c41bc645ae522a62a3, type: 3}
+  - {fileID: 2847924900312342956, guid: bf7724ab511cd3d4599400fa3aafc8c5, type: 3}
+  - {fileID: -6549649820935834411, guid: c74ce716c59d0f9418d20d4dd3486287, type: 3}
+  - {fileID: 2945175805646384564, guid: 8d3061f1c53f07846a9805a650095f06, type: 3}
+  - {fileID: 1465298796471972754, guid: 2e4607247f1cb8542853952d8f7a3151, type: 3}
+  - {fileID: -7624323628801495787, guid: 29c9fcb28301ba244a86f47abf2cc532, type: 3}
+  - {fileID: 5595344170248179008, guid: f6d37f6be30c39c4796e706d4903393a, type: 3}
+  - {fileID: -373025689527861490, guid: 30ac884f779e3b3499ab3e14f35bb5ab, type: 3}
+  - {fileID: 7129693100881935559, guid: e665b6acc92f62147bddf54c9943df8d, type: 3}
+  - {fileID: 7529261245965713173, guid: 892373236b66e0f4995e06d220218c54, type: 3}
+  "casillasOto\xF1o":
+  - {fileID: 8704690485778278557, guid: ed8e8b52436b71844a05142e0a9a4494, type: 3}
+  - {fileID: 9012285850190554665, guid: 1146e112d4842af44bc4141be3fd4a90, type: 3}
+  - {fileID: 1557372151064125161, guid: 526c54f100882c84f965be3eaa2240bc, type: 3}
+  - {fileID: -3536754877188704834, guid: 5a49bbda920cb874b81ab49ed77527b6, type: 3}
+  - {fileID: -2375435014557848068, guid: 265495c418b891741899a9386c97ba19, type: 3}
+  - {fileID: -7624323628801495787, guid: 29c9fcb28301ba244a86f47abf2cc532, type: 3}
+  - {fileID: -4990350271845389065, guid: 1dd887d220e17624eadb6383a39bf63a, type: 3}
+  - {fileID: 2207610524930068722, guid: c2034f7a21872bc46bd0b6f847a6ae4f, type: 3}
+  - {fileID: -1354898313479701211, guid: ed2f115825ddd5648b505eb1a8d87208, type: 3}
+  - {fileID: -3398746326210723547, guid: d9f33db995930a74bbd58a7a54a7d06f, type: 3}
   alturaMaxima: 6
 --- !u!114 &1379026156
 MonoBehaviour:

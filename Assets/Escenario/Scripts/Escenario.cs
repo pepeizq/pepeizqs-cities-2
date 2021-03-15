@@ -8,7 +8,7 @@ public class Escenario : MonoBehaviour
 {
     [Header("Debug")]
     public bool aleatorio;
-    public bool coloresDebug;
+    public bool coloresGeneracion;
     public bool agua;
     public bool ponerLlano;
 
@@ -17,7 +17,7 @@ public class Escenario : MonoBehaviour
     public Vectores vectores;
 
     [Header("Prefabs")]
-    public Terreno[] casillas;
+    public Terreno[] casillasDebug;
     public Terreno[] casillasInvierno;
     public Terreno[] casillasPrimavera;
     public Terreno[] casillasVerano;
@@ -4733,7 +4733,7 @@ new Vector3(41, 0.25f, 97),
         {
             if (subcasilla != null)
             {
-                if (subcasilla.id == 40)
+                if (subcasilla.id == 5)
                 {
                     int x = (int)subcasilla.posicion.x;
                     int z = (int)subcasilla.posicion.z;
@@ -4922,12 +4922,38 @@ new Vector3(41, 0.25f, 97),
 
     private void PonerTerreno(Terreno terreno)
     {
+        Terreno[] casillasFinal;
         int id = terreno.id;
-        int idDebug = id;
 
-        if (coloresDebug == false)
+        if (coloresGeneracion == false)
         {
-            id = CalcularID(id, terreno.posicion.y);
+            if (arranque.estacion == 0)
+            {
+                casillasFinal = casillasInvierno;
+            }
+            else if (arranque.estacion == 1)
+            {
+                casillasFinal = casillasPrimavera;
+            }
+            else if (arranque.estacion == 2)
+            {
+                casillasFinal = casillasVerano;
+            }
+            else if (arranque.estacion == 3)
+            {
+                casillasFinal = casillasOtoño;
+            }
+            else
+            {
+                casillasFinal = casillasDebug;
+            }
+
+            id = CalcularIDFinal(terreno.id);
+        }
+        else
+        {
+            casillasFinal = casillasDebug;
+            id = terreno.id;
         }
 
         int x = (int)terreno.posicion.x;
@@ -4937,37 +4963,18 @@ new Vector3(41, 0.25f, 97),
         {
             if (terrenos[x, z] == null)
             {
-                Terreno[] casillasFinal;
-
-                if (arranque.estacion == 0)
-                {
-                    casillasFinal = casillasInvierno;
-                }
-                else if (arranque.estacion == 1)
-                {
-                    casillasFinal = casillasPrimavera;
-                }
-                else if (arranque.estacion == 2)
-                {
-                    casillasFinal = casillasVerano;
-                }
-                else
-                {
-                    casillasFinal = casillasOtoño;
-                }
-
                 Terreno terreno2 = Instantiate(casillasFinal[id], terreno.posicion, Quaternion.identity);
                 terreno2.gameObject.transform.Rotate(Vector3.up, terreno.rotacion, Space.World);
                 terreno2.rotacion = terreno.rotacion;
                 terreno2.posicion = terreno.posicion;
-                terreno2.idDebug = idDebug;
+                terreno2.idDebug = terreno.idDebug;
 
                 terrenos[x, z] = terreno2;
             }
         }  
     }
 
-    private int CalcularID(int id, float altura)
+    private int CalcularIDFinal(int id)
     {
         if (id >= 5 && id <= 9)
         {
@@ -4999,7 +5006,7 @@ new Vector3(41, 0.25f, 97),
         }
         else if (id >= 40 && id <= 44)
         {
-            id = id - 40;
+            id = id - 35;
         }
 
         return id;
@@ -5115,7 +5122,7 @@ new Vector3(41, 0.25f, 97),
         {
             if (terrenos[x, z] != null)
             {
-                if (terrenos[x, z].id == 40)
+                if (terrenos[x, z].id == 5)
                 {
                     return true;
                 }
@@ -5131,7 +5138,7 @@ new Vector3(41, 0.25f, 97),
         {
             if (terrenos[x, z] != null)
             {
-                if (terrenos[x, z].id == 41 && terrenos[x, z].rotacion == rotacion)
+                if (terrenos[x, z].id == 6 && terrenos[x, z].rotacion == rotacion)
                 {
                     return true;
                 }
@@ -5147,7 +5154,7 @@ new Vector3(41, 0.25f, 97),
         {
             if (terrenos[x, z] != null)
             {
-                if (terrenos[x, z].id == 42 && terrenos[x, z].rotacion == rotacion)
+                if (terrenos[x, z].id == 7 && terrenos[x, z].rotacion == rotacion)
                 {
                     return true;
                 }
@@ -5163,7 +5170,7 @@ new Vector3(41, 0.25f, 97),
         {
             if (terrenos[x, z] != null)
             {
-                if (terrenos[x, z].id == 43 && terrenos[x, z].rotacion == rotacion)
+                if (terrenos[x, z].id == 8 && terrenos[x, z].rotacion == rotacion)
                 {
                     return true;
                 }
