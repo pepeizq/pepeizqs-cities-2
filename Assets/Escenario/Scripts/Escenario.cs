@@ -4920,7 +4920,7 @@ new Vector3(41, 0.25f, 97),
 
     //------------------------------------------------------------------------------------------------------------------------------------
 
-    private void PonerTerreno(Terreno terreno)
+    public void PonerTerreno(Terreno terreno)
     {
         Terreno[] casillasFinal;
         int id = terreno.id;

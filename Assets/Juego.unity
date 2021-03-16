@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 77562018}
   - component: {fileID: 77562019}
   - component: {fileID: 77562022}
+  - component: {fileID: 77562023}
   - component: {fileID: 77562021}
   - component: {fileID: 77562020}
   m_Layer: 0
@@ -226,6 +227,24 @@ MonoBehaviour:
   canvasCarga: {fileID: 1456528316}
   canvasOrigen: {fileID: 0}
   progreso: {fileID: 1229904621}
+--- !u!114 &77562023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77562017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1d9a582f0f4a049812c77d020868d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escenario: {fileID: 1379026155}
+  arranque: {fileID: 77562019}
+  teclaInvierno: 282
+  teclaPrimavera: 283
+  teclaVerano: 284
+  "teclaOto\xF1o": 285
 --- !u!1 &151907359
 GameObject:
   m_ObjectHideFlags: 0
