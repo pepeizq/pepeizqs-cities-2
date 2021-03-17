@@ -4920,7 +4920,7 @@ new Vector3(41, 0.25f, 97),
 
     //------------------------------------------------------------------------------------------------------------------------------------
 
-    public void PonerTerreno(Terreno terreno)
+    private void PonerTerreno(Terreno terreno)
     {
         Terreno[] casillasFinal;
         int id = terreno.id;
@@ -4959,7 +4959,7 @@ new Vector3(41, 0.25f, 97),
         int x = (int)terreno.posicion.x;
         int z = (int)terreno.posicion.z;
 
-        if (ComprobarLimiteX(x, 3) == true && ComprobarLimiteZ(z, 3) == true)
+        if (Limites.Comprobar(x, 3, arranque.tamañoEscenarioX) == true && Limites.Comprobar(z, 3, arranque.tamañoEscenarioZ) == true)
         {
             if (terrenos[x, z] == null)
             {

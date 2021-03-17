@@ -52,7 +52,32 @@ namespace Juego
                     escenario.terrenos[(int)casilla.posicion.x, (int)casilla.posicion.z] = null;
                     Destroy(casilla.gameObject);
 
-                    escenario.PonerTerreno(nuevaCasilla);
+                    Terreno[] casillasFinal;
+
+                    if (arranque.estacion == 0)
+                    {
+                        casillasFinal = escenario.casillasInvierno;
+                    }
+                    else if (arranque.estacion == 1)
+                    {
+                        casillasFinal = escenario.casillasPrimavera;
+                    }
+                    else if (arranque.estacion == 2)
+                    {
+                        casillasFinal = escenario.casillasVerano;
+                    }
+                    else
+                    {
+                        casillasFinal = escenario.casillasOtoño;
+                    }
+
+                    Terreno terreno2 = Instantiate(casillasFinal[nuevaCasilla.id], nuevaCasilla.posicion, Quaternion.identity);
+                    terreno2.gameObject.transform.Rotate(Vector3.up, nuevaCasilla.rotacion, Space.World);
+                    terreno2.rotacion = nuevaCasilla.rotacion;
+                    terreno2.posicion = nuevaCasilla.posicion;
+                    terreno2.idDebug = nuevaCasilla.idDebug;
+
+                    escenario.terrenos[(int)nuevaCasilla.posicion.x, (int)nuevaCasilla.posicion.z] = terreno2;
                 }
             }
         }
