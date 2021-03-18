@@ -993,6 +993,7 @@ MonoBehaviour:
   coloresGeneracion: 0
   agua: 1
   ponerLlano: 1
+  ponerArboles: 0
   arranque: {fileID: 77562019}
   vectores: {fileID: 1379026157}
   casillasDebug:

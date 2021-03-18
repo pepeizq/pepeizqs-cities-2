@@ -177,6 +177,7 @@ public class Vectores : MonoBehaviour
 
     public List<Vector3> GenerarAgua(Terreno[,] terrenos, int tamañoEscenarioX, int tamañoEscenarioZ, float alturaMaxima, int limitesMapa)
     {
+        List<Vector3> listado = null;
         portapapeles.Texto("listadoAguaInicial = new List<Vector3> {");
 
         List<int> curvas = new List<int>();
@@ -195,7 +196,7 @@ public class Vectores : MonoBehaviour
         int i = 0;
         int j = 0;
         while (i < intentosInicio)
-        {
+        {          
             if (j > intentosMaximo)
             {
                 break;
@@ -233,7 +234,7 @@ public class Vectores : MonoBehaviour
 
             if (añadir == true)
             {
-                List<Vector3> listado = new List<Vector3>();
+                listado = new List<Vector3>();
 
                 listado.Add(new Vector3(posicionX, 0.25f, limitesMapa));
                 portapapeles.Vector3(new Vector3(posicionX, 0.25f, limitesMapa));
@@ -405,15 +406,21 @@ public class Vectores : MonoBehaviour
                             portapapeles.Vector3(new Vector3(casillaX3, 0.25f, casillaZ3));
                         }
                     }
-                }
-
-                return listado;
+                }                
             }
 
             i += 1;
         }
 
         portapapeles.Texto("};");
+
+        if (listado != null)
+        {
+            if (listado.Count > 0)
+            {
+                return listado;
+            }
+        }
 
         return null;
     }

@@ -11,6 +11,7 @@ public class Escenario : MonoBehaviour
     public bool coloresGeneracion;
     public bool agua;
     public bool ponerLlano;
+    public bool ponerArboles;
 
     [Header("Scripts")]
     public Arranque arranque;
@@ -811,6 +812,11 @@ new Vector3(41, 0.25f, 97),
         if (ponerLlano == true)
         {
             PonerLlano2(alturaMaxima2);
+        }
+
+        if (ponerArboles == true)
+        {
+
         }
     }
 
