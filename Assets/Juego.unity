@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "tama\xF1oEscenarioX": 100
   "tama\xF1oEscenarioZ": 100
-  estacion: 3
+  estacion: 1
   canvasJuego: {fileID: 640026279}
   partidas: {fileID: 0}
   escenario: {fileID: 1379026155}
@@ -954,8 +954,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1379026154}
   - component: {fileID: 1379026155}
-  - component: {fileID: 1379026157}
   - component: {fileID: 1379026156}
+  - component: {fileID: 1379026157}
+  - component: {fileID: 1379026158}
   m_Layer: 0
   m_Name: Escenario
   m_TagString: Untagged
@@ -993,9 +994,10 @@ MonoBehaviour:
   coloresGeneracion: 0
   agua: 1
   ponerLlano: 1
-  ponerArboles: 0
+  ponerArboles: 1
   arranque: {fileID: 77562019}
   vectores: {fileID: 1379026157}
+  arboles: {fileID: 1379026158}
   casillasDebug:
   - {fileID: -2070812219386385408, guid: 283ff9afbaaed904387711ef6e2d514b, type: 3}
   - {fileID: -6884745709601063214, guid: 3b51a469de8d024498ba8bb3e7c1e06d, type: 3}
@@ -1086,7 +1088,16 @@ MonoBehaviour:
   - {fileID: 2207610524930068722, guid: c2034f7a21872bc46bd0b6f847a6ae4f, type: 3}
   - {fileID: -1354898313479701211, guid: ed2f115825ddd5648b505eb1a8d87208, type: 3}
   - {fileID: -3398746326210723547, guid: d9f33db995930a74bbd58a7a54a7d06f, type: 3}
+  arbolesInvierno:
+  - {fileID: 1923108939364489849, guid: 795739488081ecc479b3d25171f899db, type: 3}
+  arbolesPrimavera:
+  - {fileID: -7314594272441475302, guid: b312d413a43051945aa01423313248b5, type: 3}
+  arbolesVerano:
+  - {fileID: 3088650653641605487, guid: ec595e9f346fcf34fb955678a832801c, type: 3}
+  "arbolesOto\xF1o":
+  - {fileID: 6071433609837944218, guid: aeb06f89a5c069345880e44b5163d230, type: 3}
   alturaMaxima: 6
+  limitesMapa: 3
 --- !u!114 &1379026156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,6 +1124,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portapapeles: {fileID: 1379026156}
+--- !u!114 &1379026158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379026153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e626063c38a35194db02d642e5333dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arranque: {fileID: 77562019}
+  escenario: {fileID: 1379026155}
 --- !u!1 &1456528312
 GameObject:
   m_ObjectHideFlags: 0

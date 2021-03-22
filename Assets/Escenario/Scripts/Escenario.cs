@@ -16,13 +16,20 @@ public class Escenario : MonoBehaviour
     [Header("Scripts")]
     public Arranque arranque;
     public Vectores vectores;
+    public Arboles arboles;
 
-    [Header("Prefabs")]
+    [Header("Prefabs Terreno")]
     public Terreno[] casillasDebug;
     public Terreno[] casillasInvierno;
     public Terreno[] casillasPrimavera;
     public Terreno[] casillasVerano;
     public Terreno[] casillasOtoño;
+
+    [Header("Prefabs Arboles")]
+    public Arbol[] arbolesInvierno;
+    public Arbol[] arbolesPrimavera;
+    public Arbol[] arbolesVerano;
+    public Arbol[] arbolesOtoño;
 
     [HideInInspector]
     public Terreno[,] terrenos = new Terreno[1, 1];
@@ -30,7 +37,8 @@ public class Escenario : MonoBehaviour
     [Header("Opciones")]
     public float alturaMaxima;
 
-    private int limitesMapa = 3;
+    [HideInInspector]
+    public int limitesMapa = 3;
 
     public void Start()
     {
@@ -816,7 +824,7 @@ new Vector3(41, 0.25f, 97),
 
         if (ponerArboles == true)
         {
-
+            arboles.Generar();
         }
     }
 
