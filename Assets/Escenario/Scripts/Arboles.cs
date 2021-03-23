@@ -1,5 +1,4 @@
 ﻿using Juego;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Arboles : MonoBehaviour
@@ -31,67 +30,40 @@ public class Arboles : MonoBehaviour
                         if (casilla.arboles.Count > 0)
                         {
                             foreach (Arbol arbol in casilla.arboles)
-                            {
-                                int azar = (int)Random.Range(0, (int)casilla.posicion.y * 50);
-                          
-                                if (azar > 25)
+                            {                               
+                                if (arbol != null)
                                 {
-                                    arbol.gameObject.SetActive(false);
-                                }                               
+                                    bool ocultar = false;
+
+                                    int cachoX = (arranque.tamañoEscenarioX - (escenario.limitesMapa * 2)) / 6;
+                                    int cachoZ = (arranque.tamañoEscenarioZ - (escenario.limitesMapa * 2)) / 6;
+
+                                    if ((int)casilla.posicion.x > cachoX * 2 && (int)casilla.posicion.x < cachoX * 4)
+                                    {
+                                        if ((int)casilla.posicion.z > cachoZ * 2 && (int)casilla.posicion.z < cachoZ * 4)
+                                        {
+                                            ocultar = true;
+                                        }
+                                    }
+
+                                    if (ocultar == true)
+                                    {
+                                        arbol.gameObject.SetActive(false);
+                                    }
+                                    else
+                                    {
+                                        int azar = (int)Random.Range(0, 100);
+
+                                        if (azar < (85 + (int)casilla.posicion.y * 10))
+                                        {
+                                            arbol.visibilidad = false;
+                                            arbol.gameObject.SetActive(false);
+                                        }
+                                    }
+                                }                                                             
                             }
                         }
-                    }
-
-                    //if (casilla.arbolesUbicaciones != null)
-                    //{
-                    //    if (casilla.arbolesUbicaciones.Count > 0)
-                    //    {
-                    //        foreach (Vector3 ubicacion in casilla.arbolesUbicaciones)
-                    //        {
-                    //            int azar = (int)Random.Range(0, 100 - (int)casilla.posicion.y * 10);
-
-                    //            if (azar > 50)
-                    //            {
-                    //                int estacion = arranque.estacion;
-                    //                Arbol[] arboles;
-
-                    //                if (estacion == 0)
-                    //                {
-                    //                    arboles = escenario.arbolesInvierno;
-                    //                }
-                    //                else if (estacion == 1)
-                    //                {
-                    //                    arboles = escenario.arbolesPrimavera;
-                    //                }
-                    //                else if (estacion == 2)
-                    //                {
-                    //                    arboles = escenario.arbolesVerano;
-                    //                }
-                    //                else
-                    //                {
-                    //                    arboles = escenario.arbolesOtoño;
-                    //                }
-                    //                Debug.Log(ubicacion.x);
-                    //                int idArbol = (int)Random.Range(0, arboles.Length - 1);
-                    //                Vector3 ubicacion2 = new Vector3();
-                    //                ubicacion2.x = casilla.posicion.x + ubicacion.x + 0.5f;
-                    //                ubicacion2.y = casilla.posicion.y + ubicacion.y - 0.1f;
-                    //                ubicacion2.z = casilla.posicion.z + ubicacion.z + 0.5f;
-                    //                Arbol arbol2 = Instantiate(arboles[idArbol], ubicacion2, Quaternion.identity);
-
-                    //                if (casilla.arboles == null)
-                    //                {
-                    //                    List<Arbol> arboles2 = new List<Arbol>();
-                    //                    arboles2.Add(arbol2);
-                    //                }
-                    //                else
-                    //                {
-                    //                    casilla.arboles.Add(arbol2);
-                    //                }
-                    //            }
-                    //        }
-                    //    }
-                    //}
+                    }                    
                 }             
             }
         }
