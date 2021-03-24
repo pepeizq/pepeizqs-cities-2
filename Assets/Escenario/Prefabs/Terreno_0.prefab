@@ -101,13 +101,7 @@ MonoBehaviour:
   edificable: 1
   posicion: {x: 0, y: 0, z: 0}
   rotacion: 0
-  arbolesUbicaciones:
-  - {x: 0.5, y: 0.32, z: 0.5}
-  - {x: 0.5, y: 0.32, z: -0.5}
-  - {x: -0.5, y: 0.32, z: 0.5}
-  - {x: -0.5, y: 0.32, z: -0.5}
-  arboles:
-  - {fileID: 4963410954004233145}
+  arbol: {fileID: 4963410954004233145}
 --- !u!1001 &6817540214793217187
 PrefabInstance:
   m_ObjectHideFlags: 0

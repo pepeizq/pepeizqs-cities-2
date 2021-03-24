@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Terreno : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class Terreno : MonoBehaviour
     [HideInInspector]
     public int rotacion;
 
-    public List<Arbol> arboles;
+    public Arbol arbol;
 
     public Terreno(int ID, int Rotacion, Vector3 Posicion)
     {

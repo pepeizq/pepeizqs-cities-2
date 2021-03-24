@@ -46,10 +46,20 @@ namespace Juego
             foreach (Terreno casilla in escenario.terrenos)
             {
                 if (casilla != null)
-                {
+                {                  
                     Terreno nuevaCasilla = new Terreno(casilla.id, casilla.rotacion, casilla.posicion);
                     nuevaCasilla.idDebug = casilla.idDebug;
-                    escenario.terrenos[(int)casilla.posicion.x, (int)casilla.posicion.z] = null;
+
+                    if (casilla.arbol != null)
+                    {
+                        if (nuevaCasilla.arbol != null)
+                        {
+                            nuevaCasilla.arbol.visibilidad = casilla.arbol.visibilidad;
+                            nuevaCasilla.arbol.gameObject.SetActive(casilla.arbol.visibilidad);
+                        }
+                    }
+
+                    escenario.terrenos[(int)casilla.posicion.x, (int)casilla.posicion.z] = null;                                                      
                     Destroy(casilla.gameObject);
 
                     Terreno[] casillasFinal;
@@ -77,6 +87,13 @@ namespace Juego
                     terreno2.posicion = nuevaCasilla.posicion;
                     terreno2.idDebug = nuevaCasilla.idDebug;
 
+                    if (nuevaCasilla.arbol != null)
+                    {
+                        terreno2.arbol.visibilidad = nuevaCasilla.arbol.visibilidad;
+                        terreno2.arbol.gameObject.SetActive(nuevaCasilla.arbol.visibilidad);
+                        Debug.Log(nuevaCasilla.arbol.visibilidad);
+                    }
+                        
                     escenario.terrenos[(int)nuevaCasilla.posicion.x, (int)nuevaCasilla.posicion.z] = terreno2;
                 }
             }

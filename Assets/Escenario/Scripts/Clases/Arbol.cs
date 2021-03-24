@@ -11,7 +11,7 @@ public class Arbol : MonoBehaviour
     public int rotacion;
 
     [HideInInspector]
-    public bool visibilidad;
+    public bool visibilidad = true;
 
     public Arbol(int ID, int Rotacion, Vector3 Posicion)
     {
